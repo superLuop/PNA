@@ -25,7 +25,6 @@ public class UnreliableAlgorithm extends BaseData{
        static LinkedList<Integer> badState = null;
        static Set<Integer> badTrans = null;
        static LinkedList<Integer> up = null;
-       //static LinkedList<Integer> robustStates = null;
        static ReachabilityGraphAlgorithm rg = null;
        //存储含有不可靠资源时的状态,输出结果
    	   static StringBuffer sb = null;
