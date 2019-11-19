@@ -1,0 +1,33 @@
+PLACE     M     PRESET,   POSTSET       
+1       8      4 , 1
+2       0      1 , 2 
+3       0      2 , 3
+4       0      3 , 4
+5       8      8 , 5
+6       0      5 , 6  
+7       0      6 , 7
+8       0      7 , 8
+9       2      8:2 2 , 7:2 1   
+10      2      7 3 , 2 6 
+11      2      4:2 6 , 5 3:2
+@
+end
+Transition ifControl ifObserve
+1	     Y          Y
+2        Y          Y
+3	     Y          Y
+4	     Y          Y
+5	     N          Y
+6	     Y          N
+7	     Y          Y
+8	     Y          Y
+@
+div
+ResourcePlace ifreliable
+9                r
+10               u
+11               r
+@
+
+
+
