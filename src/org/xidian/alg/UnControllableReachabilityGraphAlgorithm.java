@@ -196,6 +196,7 @@ public class UnControllableReachabilityGraphAlgorithm {
 		}
 		
 //		System.out.println(set2);
+
 		StringBuffer sb3 = new StringBuffer();
 		Object[] array = set2.toArray();
 		for(int p=0;p<array.length;p++){
@@ -203,6 +204,7 @@ public class UnControllableReachabilityGraphAlgorithm {
 			String ss = String.valueOf(array[p]);
 //			System.out.println(ss);
 			String[] sp = ss.split("=");
+//			System.out.println(sp[0]+"\n该状态下需要控制的变迁为：  "+sp[1]);
 			sb3.append(sp[0]+"\n该状态下需要控制的变迁为：  "+sp[1]);
 			for(int y = p+1;y<array.length;y++){
 				String ss2 = String.valueOf(array[y]);
@@ -222,11 +224,10 @@ public class UnControllableReachabilityGraphAlgorithm {
 		
 		
 		String[] results = sb3.toString().split("-");
-		
+//			System.out.println(sb3);
 		//总的状态数
 		int totalstatecount = ReachabilityGraphAlgorithm.statesAmout;
 		sbResult.append("Total number of states："+totalstatecount+"\n\n\n");
-		
 		
 		
 		//System.out.println(PetriModel.ininmarking.toString());
@@ -258,12 +259,20 @@ public class UnControllableReachabilityGraphAlgorithm {
 				sbResult.append(i+" ");
 			}
 		}
-		
+
 		sbResult.append("\n\nCritical States："+criticalState.size()+"\n");
-		sbResult.append("The critical States are：");
-		for(int m = 0;m<criticalState.size();m++){
-			sbResult.append(criticalState.get(m)+" ");
-		}
+		sbResult.append("The critical States are：\n");
+//		for(int m = 0;m<criticalState.size();m++){
+			Object[] array1 = set2.toArray();
+			for(int p=0;p<array1.length;p++) {
+				if (array[p] != null) {
+					String ss = String.valueOf(array1[p]);
+					String[] sp = ss.split("=");
+					sbResult.append(sp[0]+"-->The transition that needs to be controlled in this state is： "+sp[1]+"\n");
+				}
+			}
+
+//		}
 		
 		
 		

@@ -39,7 +39,6 @@ public class PathUtil {
 	}
 	
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //		init();
 //		while(resourcePath != null) {
 //			System.out.println(resourcePath);

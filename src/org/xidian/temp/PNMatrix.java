@@ -822,7 +822,6 @@ public class PNMatrix {
     * @return true if the row is full of zeros.
     */
    public boolean isZeroRow(int r) {
-      // TODO: optimize this!
       PNMatrix A = new PNMatrix(1, getColumnDimension());
       A = getMatrix(r, r, 0, getColumnDimension()-1);
       return A.isZeroMatrix();

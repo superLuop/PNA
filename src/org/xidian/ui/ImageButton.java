@@ -139,7 +139,6 @@ public class ImageButton extends JButton implements MouseListener {
 						(getWidth() - img.getIconWidth())*2 ,
 						(getHeight() - img.getIconHeight()) / 2, image);
 		} catch (NullPointerException e) {
-			//TODO
 		}
 		if (textPanel != null) {
 			textPanel.paint(g);

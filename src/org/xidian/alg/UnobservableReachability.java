@@ -1,17 +1,12 @@
 package org.xidian.alg;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 //import java.lang.Iterable;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
 
 //import java.util.Set;
 import org.xidian.utils.LoadModelUtil;
 //import java.util.HashSet;
-import java.util.LinkedList;
+
 /**
  * @Description 含有不可观变迁的状态分析算法
  * @author LP;
@@ -21,13 +16,12 @@ public class UnobservableReachability{
 	static int[][] StateShift;
 	static List<Integer> badAnddeadState = null;
 	static List<Integer> badState = null;
-	static LinkedList<Integer> criticalState = null;
+	static List<Integer> criticalState = null;
 	static Map<Integer,String> ifobservable = null;
 	static List<Integer> unObservableTra = null;
 	static ReachabilityGraphAlgorithm rg = null;
 	static Queue<Integer> que = null;
 	static List<Integer> que1 = null;
-//	static List nowcriticalState = null;
 	
 	//存储含有不可观变迁时临界状态,输出结果
 	static StringBuffer sb = null;
@@ -159,19 +153,23 @@ public static String check(){
 				}
 		  }
 		}
-			
-//	nowcriticalState = new ArrayList();
-	//for(Integer st:criticalState){	
-		//if(st.equals(badAnddeadState)){
-			criticalState.removeAll(badAnddeadState);
-	//		nowcriticalState = criticalState;
-//			nowcriticalState.add(st);
-	//	}
-//	}	
-			
-			
-			 			
-	stateResult.append("The analysis of containing unobservable transitions is as follows:\n");  
+
+	 criticalState.removeAll(badAnddeadState);
+
+     //临界状态下需要控制的变迁
+     Map<Integer,List<Integer>> map = new HashMap<Integer,List<Integer>>();
+     for (int c : criticalState){
+     	map.put(c,new ArrayList<Integer>());
+	 	for (int m : badAnddeadState){
+     		if (StateShift[c][m] > 0){
+				map.get(c).add(StateShift[c][m]);
+//     			stateResult.append(c+"-->The transition that needs to be controlled in this state is : "+"t"+StateShift[c][m]+"\n");
+			}
+		}
+	 }
+
+
+	stateResult.append("The analysis of containing unobservable transitions is as follows:\n");
 	//所有状态数
 	int totalstate = ReachabilityGraphAlgorithm.statesAmout;
     stateResult.append("Total number of states："+totalstate+"\n\n\n");
@@ -185,9 +183,13 @@ public static String check(){
 		}
  	//输出临界状态
  	stateResult.append("\n\nCritical States："+criticalState.size()+"\n");
-	stateResult.append("The critical States are：");
-	for(int m = 0;m<criticalState.size();m++){
-		stateResult.append(criticalState.get(m)+" ");
+	stateResult.append("The critical States are：\n");
+	Set<Integer> keySet = map.keySet();
+	for(Integer key : keySet){
+		stateResult.append(key+"-->The transition that needs to be controlled in this state is : ");
+		for (int value : map.get(key))
+			stateResult.append("t"+value+"  ");
+		stateResult.append("\n");
 	}
  	
 	//输出坏状态

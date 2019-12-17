@@ -1,12 +1,6 @@
 package org.xidian.alg;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 import org.xidian.utils.LoadModelUtil;
 /**
@@ -131,7 +125,18 @@ public class UnControlAndUnObserveAlgorithm {
 		  }
 		}
     	criticalState.removeAll(badAnddeadState);
-    	
+
+		//临界状态下需要控制的变迁
+		Map<Integer,List<Integer>> map = new HashMap<Integer,List<Integer>>();
+		for (int c : criticalState){
+			map.put(c,new ArrayList<Integer>());
+			for (int m : badAnddeadState){
+				if (StateShift[c][m] > 0){
+					map.get(c).add(StateShift[c][m]);
+//     			stateResult.append(c+"-->The transition that needs to be controlled in this state is : "+"t"+StateShift[c][m]+"\n");
+				}
+			}
+		}
     	
     	stateResult.append("The analysis of containing uncontrollable and unobservable transitions is as follows:\n");  
     	//所有状态数
@@ -147,10 +152,14 @@ public class UnControlAndUnObserveAlgorithm {
     		}
      	//输出临界状态
      	stateResult.append("\n\nThe count of critical States："+criticalState.size()+"\n");
-    	stateResult.append("The critical States are：");
-    	for(int m = 0;m<criticalState.size();m++){
-    		stateResult.append(criticalState.get(m)+" ");
-    	}
+    	stateResult.append("The critical States are：\n");
+		Set<Integer> keySet = map.keySet();
+		for(Integer key : keySet){
+			stateResult.append(key+"-->The transition that needs to be controlled in this state is : ");
+			for (int value : map.get(key))
+				stateResult.append("t"+value+"  ");
+			stateResult.append("\n");
+		}
      	
     	//输出坏状态
     	String badstate = badAnddeadState.subList(deadState.length,badAnddeadState.size()).toString();
@@ -201,7 +210,6 @@ public class UnControlAndUnObserveAlgorithm {
     } 
    }
 public static void addEdge(int start, int end, int weight) {
-	// TODO Auto-generated method stub
 	StateShift[start][end] = weight;
 	
  }

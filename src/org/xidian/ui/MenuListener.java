@@ -9,16 +9,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import org.xidian.alg.ControlStepPredict;
-import org.xidian.alg.InequalityAlgorithm;
-import org.xidian.alg.ReachabilityGraphAlgorithm;
+import org.xidian.alg.*;
 //import org.xidian.alg.RobustAlgorithm;
-import org.xidian.alg.StepAlgorithm;
-import org.xidian.alg.UnControlAndUnObserveAlgorithm;
-import org.xidian.alg.UnControlStepPredict;
-import org.xidian.alg.UnControllableReachabilityGraphAlgorithm;
-import org.xidian.alg.UnobservableReachability;
-import org.xidian.alg.UnreliableAlgorithm;
+
 //import org.xidian.utils.LoadModelUtil;
 
 /**
@@ -32,11 +25,11 @@ public class MenuListener implements ActionListener{
 	String Ctemp;
 	
 	private JButton basicPropertyButton, reachabilityGraphButton, localReachabilityGraphButton, 
-	                pathButton, siphonAnalysisButton, inequationButton,unreliableButton,uncontrollableandunobservableButton,unobservableReachabilityButton,unControllableReachabilityGraphButton,StepPredictButton,ControlStepPredictButton;
+	                pathButton, siphonAnalysisButton, inequationButton,robustButton,uncontrollableandunobservableButton,unobservableReachabilityButton,unControllableReachabilityGraphButton,StepPredictButton,ControlStepPredictButton;
 	
 	private MainPanel mainPanel;
 		
-	public MenuListener(JButton basicPropertyButton, JButton reachabilityGraphButton,JButton localReachabilityGraphButton, JButton pathButton, JButton siphonAnalysisButton, JButton inequationButton,JButton unControllableReachabilityGraphButton,JButton unobservableReachabilityButton,JButton uncontrollableandunobservableButton,JButton unreliableButton,JButton StepPredictButton,JButton ControlStepPredictButton) {		
+	public MenuListener(JButton basicPropertyButton, JButton reachabilityGraphButton,JButton localReachabilityGraphButton, JButton pathButton, JButton siphonAnalysisButton, JButton inequationButton,JButton unControllableReachabilityGraphButton,JButton unobservableReachabilityButton,JButton uncontrollableandunobservableButton,JButton robustButton,JButton StepPredictButton,JButton ControlStepPredictButton) {		
 		this.basicPropertyButton = basicPropertyButton;
 		this.reachabilityGraphButton = reachabilityGraphButton;
 		this.localReachabilityGraphButton = localReachabilityGraphButton;
@@ -46,7 +39,7 @@ public class MenuListener implements ActionListener{
 		this.unControllableReachabilityGraphButton = unControllableReachabilityGraphButton;
 		this.unobservableReachabilityButton = unobservableReachabilityButton;
 		this.uncontrollableandunobservableButton = uncontrollableandunobservableButton;
-		this.unreliableButton = unreliableButton;
+		this.robustButton = robustButton;
 		this.StepPredictButton = StepPredictButton;
 		this.ControlStepPredictButton = ControlStepPredictButton;
 		mainPanel = MainPanel.getInstance();
@@ -57,7 +50,6 @@ public class MenuListener implements ActionListener{
 	
 		if (actionEvent.getSource() == basicPropertyButton) {			
 			 //暂时只提供前置后置矩阵
-			 //TODO
 			 return;		
 		}else if (actionEvent.getSource() == reachabilityGraphButton) {
 	     	 try {
@@ -78,32 +70,16 @@ public class MenuListener implements ActionListener{
 			 mainPanel.setText(result);
 			 return;
 		}else if (actionEvent.getSource() == siphonAnalysisButton) {
-			// String result = new SiphonAlgorithm().analyse();
-			//-->暂时为了解决鲁棒分析
-			 List<Integer> list = new ArrayList<Integer>();
-			 //正式模型开始
-			 list.add(2);
-			 list.add(6);
-			 list.add(11);
-			 list.add(4);
-			 list.add(7);
-			 list.add(13);
-			 //正式模型结束
-			 
-//			 list.add(1);
-//			 list.add(3);
-			 
-//			 String result = new RobustAlgorithm().analyse(list);
-			 //<--
-//			 mainPanel.setText(result);
+			 String result = new SiphonAlgorithm().analyse();
+			 mainPanel.setText(result);
 			 return;
 		}else if (actionEvent.getSource() == inequationButton) {
 			 String result = new InequalityAlgorithm().analyse();
 			 mainPanel.setText(result);
 			 return;
-		}else if(actionEvent.getSource() == unreliableButton){
-			 new UnreliableAlgorithm();
-			String result = UnreliableAlgorithm.check();
+		}else if(actionEvent.getSource() == robustButton){
+			 new RobustAlgorithm();
+			String result = RobustAlgorithm.check();
 			 mainPanel.setText(result);
 			 return;
 		}

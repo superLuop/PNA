@@ -17,6 +17,6 @@ public class ValidateUtil {
 		return PetriModel.ininmarking != null;
 	}
 	
-	//TODO 各种输入是否规范验证
+	//各种输入是否规范验证
 
 }

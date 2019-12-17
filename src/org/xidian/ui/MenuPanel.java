@@ -28,7 +28,7 @@ public class MenuPanel extends JPanel {
 		ImageButton unControllableReachabilityGraphButton = new ImageButton("menu",UIContants.UI_UNCONTROLLABLE_ANALYSIS,16);
 		ImageButton unobservableReachabilityButton = new ImageButton("menu",UIContants.UI_UNOBSERVABLE_ANALYSIS,16);
 		ImageButton uncontrollableandunobservableButton = new ImageButton("menu",UIContants.UI_UNCONTROLLABLEANDUNOBSERVABLE_ANALYSIS,16);
-		ImageButton unreliableButton = new ImageButton("menu",UIContants.UI_UNRELIABLE_ANALYSIS,16);
+		ImageButton robustButton = new ImageButton("menu",UIContants.UI_ROBUST_ANALYSIS,16);
 		ImageButton ControlStepPredictButton = new ImageButton("menu",UIContants.UI_CONTROLSTEPPREDICT_ANALYSIS,16);
 		ImageButton StepPredictButton = new ImageButton("menu",UIContants.UI_STEPPREDICT_ANALYSIS,16);
 		//设置按钮大小
@@ -44,11 +44,11 @@ public class MenuPanel extends JPanel {
 		unControllableReachabilityGraphButton.setPreferredSize(new Dimension(width, height));
 		unobservableReachabilityButton.setPreferredSize(new Dimension(width,height));
 		uncontrollableandunobservableButton.setPreferredSize(new Dimension(width,height));
-		unreliableButton.setPreferredSize(new Dimension(width,height));
+		robustButton.setPreferredSize(new Dimension(width,height));
 		ControlStepPredictButton.setPreferredSize(new Dimension(width, height));
 		StepPredictButton.setPreferredSize(new Dimension(width, height));
 		//添加监听器		
-		MenuListener menuListener = new MenuListener(basicPropertyButton, reachabilityGraphButton, localReachabilityGraphButton, pathButton, siphonAnalysisButton, inequationButton,unControllableReachabilityGraphButton,unobservableReachabilityButton,uncontrollableandunobservableButton,unreliableButton,StepPredictButton,ControlStepPredictButton);
+		MenuListener menuListener = new MenuListener(basicPropertyButton, reachabilityGraphButton, localReachabilityGraphButton, pathButton, siphonAnalysisButton, inequationButton,unControllableReachabilityGraphButton,unobservableReachabilityButton,uncontrollableandunobservableButton,robustButton,StepPredictButton,ControlStepPredictButton);
 		basicPropertyButton.addActionListener(menuListener);
 		reachabilityGraphButton.addActionListener(menuListener);
 		localReachabilityGraphButton.addActionListener(menuListener);
@@ -59,7 +59,7 @@ public class MenuPanel extends JPanel {
 		unControllableReachabilityGraphButton.addActionListener(menuListener);
 		unobservableReachabilityButton.addActionListener(menuListener);
 		uncontrollableandunobservableButton.addActionListener(menuListener);
-		unreliableButton.addActionListener(menuListener);
+		robustButton.addActionListener(menuListener);
 		StepPredictButton.addActionListener(menuListener);
 		ControlStepPredictButton.addActionListener(menuListener);
 		//设置按钮默认背景边框可见
@@ -83,24 +83,24 @@ public class MenuPanel extends JPanel {
 		unobservableReachabilityButton.setContentAreaFilled(false);
 		uncontrollableandunobservableButton.setBorderPainted(false);
 		uncontrollableandunobservableButton.setContentAreaFilled(false);
-		unreliableButton.setBorderPainted(false);
-		unreliableButton.setContentAreaFilled(false);
+		robustButton.setBorderPainted(false);
+		robustButton.setContentAreaFilled(false);
 		StepPredictButton.setBorderPainted(false);	
 		StepPredictButton.setContentAreaFilled(false);
 		ControlStepPredictButton.setBorderPainted(false);	
 		ControlStepPredictButton.setContentAreaFilled(false);
 		//添加按钮
-		add(basicPropertyButton);
+//		add(basicPropertyButton);
 		add(reachabilityGraphButton);
 		add(localReachabilityGraphButton);
 		add(pathButton);
 		add(siphonAnalysisButton); 
 		add(inequationButton);
-		add(dynamicPathButton);
+//		add(dynamicPathButton);
 	    add(unControllableReachabilityGraphButton);
 	    add(unobservableReachabilityButton);
 	    add(uncontrollableandunobservableButton);
-	    add(unreliableButton);
+	    add(robustButton);
 		add(ControlStepPredictButton);
 		add(StepPredictButton);
 		//设置可见性		

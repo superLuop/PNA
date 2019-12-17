@@ -7,7 +7,6 @@ public class TestHash1 {
 
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
 		return 123;
 	}
 

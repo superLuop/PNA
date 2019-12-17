@@ -206,7 +206,7 @@ public class UIContants {
 	/**
 	 * 主界面工具栏-含有不可靠资源分析按钮名称
 	 */
-	public final static String UI_UNRELIABLE_ANALYSIS = "RobustAnalysis";
+	public final static String UI_ROBUST_ANALYSIS = "RobustAnalysis";
 	
 	public final static String UI_STEPPREDICT_ANALYSIS = "UnControlStepPredict";	
 	
@@ -284,5 +284,5 @@ public class UIContants {
 	 * 文件另存为
 	 */
 	public final static String UI_FILE_SAVE = "File saved as";
-	
+
 }
