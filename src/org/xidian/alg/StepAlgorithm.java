@@ -85,8 +85,7 @@ public class StepAlgorithm extends BaseData{
 	 */
 	public static String analyse() {
 		badAnddeadState2 = new StringBuffer();
-		
-		
+
 		StringBuffer resultStr = new StringBuffer("\nThe Result of Step Analysis：\n\n");
 		TreeSet<Integer> cdeadlockNodes =  new TreeSet<Integer>();
 		TreeSet<Integer> criticalNodes = new TreeSet<Integer>(); //临界节点
@@ -94,13 +93,13 @@ public class StepAlgorithm extends BaseData{
 		Queue<Integer> stateQueue = new LinkedList<Integer>();  //状态队列
 		Map<Integer, Integer> depthMap = new HashMap<Integer, Integer>(); //保存反推步长
 		//下标0开始
-		if(deadStates!=null)
-		for(StateNode node : deadStates) {
+		if(ReachabilityGraphAlgorithm.deadlockStates !=null)
+		for(StateNode node : ReachabilityGraphAlgorithm.deadlockStates) {
 			stateQueue.add(node.getStateNo());
 			cdeadlockNodes.add(node.getStateNo());
 			depthMap.put(node.getStateNo(), 1);
 		}
-		
+//		System.out.println(ReachabilityGraphAlgorithm.deadlockStates);
 		int currentNode =  -1;
 		List<Integer> upNodes = null;
 		while(!stateQueue.isEmpty()) {
@@ -128,13 +127,13 @@ public class StepAlgorithm extends BaseData{
 	
 		Criticals = PrintUtil.printSet(criticalNodes);
 		
-		resultStr.append("Deadlock States count: " +deadStates.size()+"\n"+ PrintUtil.printList(deadStates) + "\n");
+		resultStr.append("Deadlock States count: " + ReachabilityGraphAlgorithm.deadlockStates.size()+"\n"+ PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates) + "\n");
 		resultStr.append("Bad States count：" +deadlockNodes.size()+"\n"+ PrintUtil.printSet(deadlockNodes));
 		resultStr.append("\n\nS(Critical)==>S(Bad)\n");
 		
 		//+
-		deadState = PrintUtil.printList(deadStates);
-		badAnddeadState2.append(PrintUtil.printList(deadStates)+PrintUtil.printSet(deadlockNodes));
+		deadState = PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates);
+		badAnddeadState2.append(PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates)+PrintUtil.printSet(deadlockNodes));
 		
 		
 		//下面开始输出临界关系

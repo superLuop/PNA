@@ -8,6 +8,8 @@ import java.awt.Dimension;
 //import java.awt.Panel;
 //import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 //import java.awt.event.MouseAdapter;
 //import java.awt.event.MouseEvent;
 
@@ -30,6 +32,14 @@ public class MainFrame extends JFrame {
 		super(UIContants.UI_SOFTWARE_NAME1);
 		//super(UIContants.UI_SOFTWARE_NAME);
 		init();
+		addWindowListener(
+				new WindowAdapter() {
+					public void windowClosing(WindowEvent e) {
+						setVisible(false);
+						System.exit(0);
+					}
+				}
+		);
 	}
 
 	

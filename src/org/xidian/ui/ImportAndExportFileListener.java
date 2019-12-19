@@ -47,7 +47,7 @@ public class ImportAndExportFileListener extends JFrame implements ActionListene
 		    File file = new File(fileDialog.getDirectory(), fileDialog.getFile());	 
 		    String string = mainPanel.getText();
 		    //导出
-		    FileUtil.write(file.getAbsolutePath() + ".txt", string, false);	   
+		    FileUtil.write(file.getAbsolutePath() + ".txt", string, false);
 		}			
 	}
 

@@ -13,11 +13,13 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 public class OptionListener extends JFrame implements ActionListener {
 	
-	private JButton importFileButton, exportFileButton;
+	private JButton importFileButton, exportFileButton, declareRationButton, exitButton;
 
-	public OptionListener(JButton importFileButton, JButton exportFileButton) {
+	public OptionListener(JButton importFileButton, JButton exportFileButton, JButton declareRationButton, JButton exitButton) {
 		this.importFileButton = importFileButton;
 		this.exportFileButton = exportFileButton;
+		this.declareRationButton = declareRationButton;
+		this.exitButton = exitButton;
 	}
 
 	@Override
@@ -29,9 +31,15 @@ public class OptionListener extends JFrame implements ActionListener {
 		} else if (actionEvent.getSource() == exportFileButton){		
 			exportFileButton.addActionListener(importExportFileListener);
 			return;
-		} 
-		//JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_NAME1);
-		JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_COPYRIGHT);
+		}else if (actionEvent.getSource() == declareRationButton){
+			JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_NAME1);
+//		JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_COPYRIGHT);
+			return;
+		}else if (actionEvent.getSource() == exitButton){
+			JOptionPane.showMessageDialog(null, "The programming is about to quit...");
+			System.exit(0);
+		}
+
 	}
 	
 }

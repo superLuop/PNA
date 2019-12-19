@@ -23,7 +23,7 @@ public class Background extends JPanel {
 		setBounds(0, 0, (int) screenSize.getWidth(),
 				(int) screenSize.getHeight());		
 		g.drawImage(new ImageIcon(this.getClass().getResource(
-				"/images/background1.jpg")).getImage(), 0, 0, getWidth(), getHeight(), this);
+				"/images/background.jpg")).getImage(), 0, 0, getWidth(), getHeight(), this);
 		MainFrame.getInstance().repaint();
 	}
 	

@@ -285,4 +285,8 @@ public class UIContants {
 	 */
 	public final static String UI_FILE_SAVE = "File saved as";
 
+	/**
+	 * 退出
+	 */
+	public static final String UI_EXIT = "exit";
 }

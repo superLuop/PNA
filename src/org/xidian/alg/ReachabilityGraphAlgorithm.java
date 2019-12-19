@@ -40,7 +40,8 @@ public class ReachabilityGraphAlgorithm extends BaseData{
     Map<Integer,StateNode> resu = null;
 
     //存放死锁状态
-    List<String> deadstate = null;
+    public static List<String> deadstate = null;
+	public static List<StateNode> deadlockStates = null;
 
 	private static Map<Integer,StateNode> preStatesMap; //已发现状态集合
 	public static int statesAmout; //记录状态总数
@@ -57,6 +58,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		adjlist = new ArrayList<List<Integer>>();
 		resu = new HashMap<Integer,StateNode>();
 		deadstate = new ArrayList<String>();
+		deadlockStates = new LinkedList<StateNode>();
 
 
 		if(initNode == null) {
@@ -124,6 +126,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 				deadStateCount++;
 				//得到死锁状态
 				deadstate.add(currentState.toString().trim());
+				deadlockStates.add(currentState);
 			} else {
 				while(!nextTrans.isEmpty()) {
 
@@ -168,6 +171,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		statesAmout = stateCount;
 		resultStr.append("\nTotal states count: " + statesAmout + "\n");
 		resultStr.append("\nTotal deadlock state counts: " + deadStateCount + "\n" + deadStateStr);
+//		System.out.println(deadStateStr);
 		//如果状态数低于10000，再初始化图数据结构，后期需要更改数据结构！矩阵的表示方法改成邻接表形式！
 		if(statesAmout < 10000) {
 			//resultStr.append(calculateDeadlockPath());

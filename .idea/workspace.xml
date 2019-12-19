@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1425fcb1-848e-4b3e-bad6-26ec4efd7619" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/PNA/images/background1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/background1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1425fcb1-848e-4b3e-bad6-26ec4efd7619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/images/exit.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PNA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PNA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/background .jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/images/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ControlStepPredict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ControlStepPredict.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$PetriNet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$PetriNet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfPlaces.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfPlaces.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfTransitions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfTransitions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlAndUnObserveAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlAndUnObserveAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlStepPredict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlStepPredict.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Marking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Marking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/StateNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/StateNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/WindowDragSize$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/WindowDragSize$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Background.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/UIContants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/UIContants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/background .jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/background.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/SiphonAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/SiphonAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControlStepPredict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControlStepPredict.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/CriticalNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/CriticalNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/test/WindowDragSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/test/WindowDragSize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/Background.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/MenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/ImportAndExportFileListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/ImportAndExportFileListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/OptionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/OptionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/UIContants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/UIContants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/FileUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +69,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/xidian/backup" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -94,13 +78,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java exercises\IDEA ex\PNA\src\images" />
+      <recent name="E:\Java exercises\IDEA ex\PNA\src\org\xidian\backup" />
+      <recent name="E:\Java exercises\IDEA ex\PNA\src" />
       <recent name="E:\Java exercises\IDEA ex\PNA\src\imgs" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Java exercises\IDEA ex\PNA\src\org\xidian\backup" />
-      <recent name="E:\Java exercises\IDEA ex\PNA\src\images" />
-      <recent name="E:\Java exercises\IDEA ex\PNA\src" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Java exercises\IDEA ex\PNA\src\imgs" />
     </key>
   </component>
@@ -197,7 +181,7 @@
       <workItem from="1576479136176" duration="9137000" />
       <workItem from="1576546418915" duration="28285000" />
       <workItem from="1576632723458" duration="28676000" />
-      <workItem from="1576718779405" duration="565000" />
+      <workItem from="1576718779405" duration="15725000" />
     </task>
     <task id="LOCAL-00001" summary="version1.0">
       <created>1574153924873</created>
@@ -220,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576574826294</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1576719392135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576719392135</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +223,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="177" key="#Notifications" timestamp="1576719502739">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1576719502739" />
     <state x="1269" y="168" key="#com.intellij.ide.util.MemberChooser" timestamp="1576657750248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -240,42 +235,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="825" y="449" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576479143915" />
-    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576655793330">
+    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576744846524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576655793330" />
-    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1576719013570">
+    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576744846524" />
+    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1576719390029">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576719013570" />
+    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576719390029" />
     <state x="761" y="331" key="FileChooserDialogImpl" timestamp="1576656210458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="761" y="331" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576656210458" />
-    <state width="1568" height="231" key="GridCell.Tab.0.bottom" timestamp="1576681505373">
+    <state width="1876" height="245" key="GridCell.Tab.0.bottom" timestamp="1576745754235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1568" height="231" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576681505373" />
-    <state width="1568" height="231" key="GridCell.Tab.0.center" timestamp="1576681505370">
+    <state width="1876" height="245" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576745754235" />
+    <state width="1876" height="245" key="GridCell.Tab.0.center" timestamp="1576745754234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1568" height="231" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576681505370" />
-    <state width="1568" height="231" key="GridCell.Tab.0.left" timestamp="1576681505369">
+    <state width="1876" height="245" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576745754234" />
+    <state width="1876" height="245" key="GridCell.Tab.0.left" timestamp="1576745754234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1568" height="231" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576681505369" />
-    <state width="1568" height="231" key="GridCell.Tab.0.right" timestamp="1576681505372">
+    <state width="1876" height="245" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576745754234" />
+    <state width="1876" height="245" key="GridCell.Tab.0.right" timestamp="1576745754234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1568" height="231" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576681505372" />
+    <state width="1876" height="245" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576745754234" />
     <state x="461" y="151" key="SettingsEditor" timestamp="1576656252426">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576656252426" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1576574867809">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1576719412025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576574867809" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576719412025" />
     <state x="792" y="283" key="extract.method.dialog" timestamp="1576567081748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

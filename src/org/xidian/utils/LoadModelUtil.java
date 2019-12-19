@@ -59,8 +59,7 @@ public class LoadModelUtil {
 		String resource = FileUtil.read(filePath, null);
 		
 //		System.out.println("文件名："+resource);
-		
-		
+
 		//wss
 		String[] split = resource.split("end");
 		

@@ -1,5 +1,7 @@
 package org.xidian.ui;
 
+import javax.swing.*;
+
 /**
  * PNA 入口
  * @author HanChun
@@ -7,7 +9,7 @@ package org.xidian.ui;
 public class Main{	
 	
    public static void main(String[] args) {		 
-	  MainFrame.getInstance();	  
+	  MainFrame.getInstance();
    }
-   
+
 }

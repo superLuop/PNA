@@ -14,11 +14,11 @@ import java.io.IOException;
  * @version 2016-5-16
  */
 public final class FileUtil {
-    /** 
+    /**
      * 读取文件并按行输出
      * @param filePath
      * @param spec 允许解析的最大行数， spec==null时，解析所有行
-     * @return 
+     * @return
      */
     public static String read(final String filePath, final Integer spec) {
         File file = new File(filePath);
@@ -46,7 +46,7 @@ public final class FileUtil {
         }
         return sb.toString();
     }
-    /** 
+    /**
      * 写文件
      * @param filePath 输出文件路径
      * @param content 要写入的内容
@@ -56,7 +56,7 @@ public final class FileUtil {
     public static int write(final String filePath, final String content, final boolean append) {
         File file = new File(filePath);
         if (content == null) {
-       //     System.out.println("file [" + filePath + "] invalid!!!");
+            //     System.out.println("file [" + filePath + "] invalid!!!");
             return 0;
         }
 
@@ -92,7 +92,7 @@ public final class FileUtil {
                 closeable.close();
             }
         } catch (IOException e) {
-        	  
+            //TODO
         }
     }
 
@@ -102,9 +102,9 @@ public final class FileUtil {
         }
         return false;
     }
-    
-	public static Long getCurrentTime() {
-    	return System.currentTimeMillis();
+
+    public static Long getCurrentTime() {
+        return System.currentTimeMillis();
     }
 
 }
