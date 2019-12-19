@@ -54,9 +54,9 @@ public class MenuListener implements ActionListener{
 		}else if (actionEvent.getSource() == reachabilityGraphButton) {
 	     	 try {
 				String graphResult = new ReachabilityGraphAlgorithm().createReachabilityGraph(null, 0);
-				String str = StepAlgorithm.analyse();
-//				mainPanel.setText(graphResult);
-				mainPanel.setText(graphResult+"\n"+str.trim().subSequence("The Result of Step Analysis".length()+2, str.trim().indexOf("S(Critical)==>S(Bad)")));
+//				String str = StepAlgorithm.analyse();
+				mainPanel.setText(graphResult);
+//				mainPanel.setText(graphResult+"\n"+str.trim().subSequence("The Result of Step Analysis".length()+2, str.trim().indexOf("S(Critical)==>S(Bad)")));
 	     	 } catch (CloneNotSupportedException e) {
 	     		JOptionPane.showMessageDialog(null,UIContants.UI_ANALYSIS_FAILURE);
 	     		 return;

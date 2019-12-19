@@ -34,72 +34,68 @@ import org.xidian.utils.PrintUtil;
  * @version 2.0 2016-10-2 (1)自定义方式生成局部可达图;
  */
 public class ReachabilityGraphAlgorithm extends BaseData{
-	
-	
+
+
     public static List<List<Integer>> adjlist = null;
     Map<Integer,StateNode> resu = null;
-    
+
     //存放死锁状态
     List<String> deadstate = null;
-	
+
 	private static Map<Integer,StateNode> preStatesMap; //已发现状态集合
 	public static int statesAmout; //记录状态总数
-	
-	/** 
+
+	/**
 	 * 自定义方式生成可达图 (可局部)
 	 * @param initNode 自定义初始marking
 	 * @param step 步长, 为0表示不限制步长，其他表示一次分析最远步长
-	 * @throws CloneNotSupportedException 
+	 * @throws CloneNotSupportedException
 	 */
-	public String createReachabilityGraph(StateNode initNode, int step) 
+	public String createReachabilityGraph(StateNode initNode, int step)
 			throws CloneNotSupportedException{
-		
+
 		adjlist = new ArrayList<List<Integer>>();
 		resu = new HashMap<Integer,StateNode>();
 		deadstate = new ArrayList<String>();
-		
-		
+
+
 		if(initNode == null) {
 			initNode = rootState;
 		}
-		String str = "Initial State [" + initNode.toString().trim() 
+		String str = "Initial State [" + initNode.toString().trim()
 				+ "], Path=" + step + "\n";
 		if(step == 0) {
 			step = Integer.MAX_VALUE - 2;
 			str = "Initial State [" + initNode.toString().trim() + "]\n";
 		}
 		//初始化200个状态
-		preStatesMap = new HashMap<Integer,StateNode>(200); 
+		preStatesMap = new HashMap<Integer,StateNode>(200);
 		StringBuffer resultStr = new StringBuffer(str);
 		StringBuffer deadStateStr = new StringBuffer("\n");
-		int stateCount = 1;	
+		int stateCount = 1;
+		int deadStateCount = 0;
 		//当前状态下，能够发射的变迁
-		Stack<Integer> nextTrans = new Stack<Integer>(); 
-		Queue<StateNode> stateQueue = new LinkedList<StateNode>();  
+		Stack<Integer> nextTrans = new Stack<Integer>();
+		Queue<StateNode> stateQueue = new LinkedList<StateNode>();
 		Marking temState = null;
 		StateNode currentState = initNode;
 		//过程中探索到的状态
-		StateNode duringState = null;  
+		StateNode duringState = null;
 		preStatesMap.put(currentState.hashCode(), currentState);
 		//根状态为起始状态
-		stateQueue.add(initNode); 
+		stateQueue.add(initNode);
 		boolean[] canFire = null;
-		
-		
+
+
 		while(!stateQueue.isEmpty()) {
 			//超过步长,跳出循环
 			if(currentState.getDepth() > (step + 1)) {
 				break;
 			}
-			
-			
-			
-		
-			
 			//每次取出队列中最前面的状态作为当前状态（注意该状态可能不是新状态）
-			currentState = stateQueue.poll(); 
+			currentState = stateQueue.poll();
 			resultStr.append("\nState nr:" + currentState.getStateNo() + "\n"
-					+ PrintUtil.printPlaces() + "\n" + "toks: " 
+					+ PrintUtil.printPlaces() + "\n" + "toks: "
 					+ currentState + "\n");
 //			System.out.println("------------------------"+currentState.getStateNo());
 			canFire = getEnabledTrans(currentState);
@@ -108,41 +104,38 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 					nextTrans.push(i);
 				}
 			}
-			
-			
+
 			resu.put(currentState.getStateNo(), currentState);
 //			System.out.println(currentState);
-			
-			
+
 			List<Integer> ls = new ArrayList<Integer>();
-			
-			
+
 			//超过步长,不再计算可发射变迁
 			if(currentState.getDepth() > step) {
 				continue;
 			}
-			
+
 			//死锁状态
 			if(nextTrans.isEmpty()) {
 				currentState.setIfDeadlock(true);
 				resultStr.append("Deadlock States\n");
-				deadStateStr.append(currentState.getStateNo() + ": " 
+				deadStateStr.append(currentState.getStateNo() + ": "
 						+ currentState + "\n");
-				
+				deadStateCount++;
 				//得到死锁状态
 				deadstate.add(currentState.toString().trim());
 			} else {
 				while(!nextTrans.isEmpty()) {
-					
+
 					ls.add(currentState.getStateNo());
-					
+
 					if(currentState.getDepth() > (step + 1)) {}
 					resultStr.append("==" + "t" + (nextTrans.peek() + 1));
-					
+
 //					System.out.println("++++++++++++"+(nextTrans.peek() + 1));
 					ls.add((nextTrans.peek() + 1));
-					
-					
+
+
 					temState = fire(currentState, nextTrans.pop());
 					//新状态
 					if(!ifOccured(temState)) {
@@ -150,16 +143,16 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 						duringState = new StateNode(temState.marking, stateCount,
 								currentState.getDepth() + 1);
 						resultStr.append("==>" + "s" + duringState.getStateNo() + "\n");
-						
+
 //						System.out.println("****************"+duringState.getStateNo());
 					//	addEdge(currentState.getStateNo(),duringState.getStateNo(),(nextTrans.peek() + 1));
 						ls.add(duringState.getStateNo());
-						
+
 						preStatesMap.put(temState.hashCode(), duringState);
 						stateQueue.add((StateNode) duringState.clone());
 					//旧状态
 					}else{
-						resultStr.append("==>" + "s" 
+						resultStr.append("==>" + "s"
 								+ preStatesMap.get(temState.hashCode()).getStateNo() + "\n");
 						ls.add(preStatesMap.get(temState.hashCode()).getStateNo());
 					}
@@ -168,13 +161,13 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 				adjlist.add(ls);
 			}
 		}
-		
-		
+
+
 //		System.out.println(adjlist);
-		
+
 		statesAmout = stateCount;
 		resultStr.append("\nTotal states count: " + statesAmout + "\n");
-//		resultStr.append("\nTotal dead state counts: \n" + deadStateCount + deadStateStr);
+		resultStr.append("\nTotal deadlock state counts: " + deadStateCount + "\n" + deadStateStr);
 		//如果状态数低于10000，再初始化图数据结构，后期需要更改数据结构！矩阵的表示方法改成邻接表形式！
 		if(statesAmout < 10000) {
 			//resultStr.append(calculateDeadlockPath());
@@ -187,12 +180,11 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		return resultStr.toString();
 		//System.out.println(resultStr.toString());	//for debug
 	}
-	
+
 	/**
-	 * @see createReachabilityGraph(),该方法在createReachabilityGraph()上面做了优化（之所以不在上面直接改，是为了保证基础版的足够简单）
+	 * see createReachabilityGraph(),该方法在createReachabilityGraph()上面做了优化（之所以不在上面直接改，是为了保证基础版的足够简单）
 	 * 使用jgrapht开源包，实现遍历可达图，生成图数据结构，然后借助相应的办法
-	 * @param destPath 输出目录
-	 * @throws CloneNotSupportedException 
+	 * @throws CloneNotSupportedException
 	 */
 	public GraphModel traverseReachabilityGraph() throws CloneNotSupportedException{
 		preStatesMap = new HashMap<Integer,StateNode>(1000); //初始化1000个状态
@@ -237,7 +229,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 						currentState.getChildNodes().add(duringState);
 						currentTran = grapht.addEdge(preStatesMap.get(currentState.hashCode()), duringState);
 						currentTran.setTranName(currentTranName);
-						
+
 						//下面转为graph model
 						graphModel.getCostMatrix().getMatrix()[preStatesMap.get(currentState.hashCode()).getStateNo()-1][duringState.getStateNo()-1] = 1+currentTranName;
 						//graphModel.getArcMatrix().getMatrix()[preStatesMap.get(currentState.hashCode()).getStateNo()-1][duringState.getStateNo()-1] = currentTranName; //下标正常，1开始
@@ -250,8 +242,8 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 						currentTran.setTranName(currentTranName);
 						//下面转为graph model
 						graphModel.getCostMatrix().getMatrix()[preStatesMap.get(currentState.hashCode()).getStateNo()-1][preStatesMap.get(temState.hashCode()).getStateNo()-1] = 1+currentTranName;
-//						graphModel.getArcMatrix().getMatrix()[preStatesMap.get(currentState.hashCode()).getStateNo()-1][preStatesMap.get(temState.hashCode()).getStateNo()-1] = currentTranName; 
-						
+//						graphModel.getArcMatrix().getMatrix()[preStatesMap.get(currentState.hashCode()).getStateNo()-1][preStatesMap.get(temState.hashCode()).getStateNo()-1] = currentTranName;
+
 					}
 				}
 			}
@@ -259,14 +251,14 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		//Matrix.printMatrix(graphModel.getCostMatrix().getMatrix());
 		return graphModel;
 	}
-	
+
 	/**
 	 * 初始化graph model
 	 */
 	public void initGrapht() {
 		graphModel = new GraphModel(statesAmout);
 	}
-	
+
 	/**
 	 * 1.计算出起始节点到各个死锁节点的全部(或部分)路径
 	 * 2.计算出各个路径中的最短路径（路径长度）
@@ -301,19 +293,19 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 //	    		resultStr.append("Complete Deadlock State[" + el.getStateNo() +"]\n");
 //	    	}
 //		}
-		
+
 		//暂时考虑是：状态数低于100计算环情况
 //		if(grapht.vertexSet().size() < 100) {
 //			resultStr.append("\n全局可达图环路信息分析如下：\n");
 //			//System.out.println("\n全局可达图环路信息分析如下：");
 //			CycleDetector<StateNode, Transition> cdetector =  new CycleDetector<StateNode, Transition>(grapht);
 //			System.out.println("共   "+cdetector.findCycles().size() + " 个环，其中经过节点（即可逆）的环共   " + cdetector.findCyclesContainingVertex(rootState).size() + " 个环");
-//			resultStr.append("共   "+cdetector.findCycles().size() + " 个环，其中经过节点（即可逆）的环共   " + cdetector.findCyclesContainingVertex(rootState).size() + " 个环");		
+//			resultStr.append("共   "+cdetector.findCycles().size() + " 个环，其中经过节点（即可逆）的环共   " + cdetector.findCyclesContainingVertex(rootState).size() + " 个环");
 //		}
 //      cyclePath = new CyclePath(graphModel);
 //		return resultStr.toString();
 //	}
-	
+
 	/**
 	 * 发射指定变迁
 	 * @param transIndex 变迁编号
@@ -323,35 +315,35 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	public static Marking fire(StateNode currentState, int transIndex) {
 	    Marking newMarking = new Marking(PetriModel.placesCount);
 	    for (int i = 0; i < currentState.getState().length; i++) {
-	    	newMarking.marking[i] = currentState.getState()[i] 
-	    			+ PetriModel.preMatrix.getValue(i, transIndex)  
-	    			- PetriModel.posMatrix.getValue(i, transIndex);	
+	    	newMarking.marking[i] = currentState.getState()[i]
+	    			+ PetriModel.preMatrix.getValue(i, transIndex)
+	    			- PetriModel.posMatrix.getValue(i, transIndex);
 	    }
 	    return newMarking;
 	}
-		   
+
 	 /**
 	  * 得到当前状态下能够发射的变迁
 	  * @param currentState 当前状态
 	  * @return boolean[] true满足使能条件
 	  */
 	 public static boolean[] getEnabledTrans(StateNode currentState) {
-	      boolean[] result = new boolean[PetriModel.transCount];  
+	      boolean[] result = new boolean[PetriModel.transCount];
 	      for(int i = 0; i < result.length; i++) {
 	    	  result[i] = true;
 	      }
 	      for (int i = 0; i < PetriModel.transCount ;i++) {
 	         for (int j = 0; j < PetriModel.placesCount; j++) {
-	            if ((currentState.getState()[j] 
-	            		< PetriModel.posMatrix.getValue(j, i))) {  
+	            if ((currentState.getState()[j]
+	            		< PetriModel.posMatrix.getValue(j, i))) {
 	               result[i] = false;
 	               break;
 	            }
 	         }
 	     }
 	    return result;
-	} 
-	 
+	}
+
 	 /**
 	  * 由GraphModel 得到上step层节点（后往前推）
 	  * map中key是返回的相应层状态
@@ -360,7 +352,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	  */
 	 public static List<Integer> getDistanceNodes(int stateNo, int step, boolean ifFoward) {
 		 List<Integer>  result = new ArrayList<>(getStates(stateNo, ifFoward));
-		 Set<Integer> occuredSet = new HashSet<Integer>(); 
+		 Set<Integer> occuredSet = new HashSet<Integer>();
 		 Queue<Integer> queue = new LinkedList<Integer>();
 		 int current = -1;
 	     while(step > 1 && result != null && result.size() != 0) {
@@ -379,7 +371,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	     }
 	     return result;
 	  }
-	 
+
 	 /**
 	  * 得到上一层或者上一层非0元素
 	  * 0开始下标！！
@@ -390,11 +382,11 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		 return ifFoward ? Matrix.getElementsExceptZero(Matrix.getMatrixCol(stateNo - 1, graphModel.getCostMatrix().getMatrix())) :
 			 Matrix.getElementsExceptZero(Matrix.getMatrixRow(stateNo - 1, graphModel.getCostMatrix().getMatrix()));
 	 }
-	 
+
 	 /**
 	  * 由GraphModel 得到上一层节点（后往前推）
 	  * 对应就是邻接矩阵的列向量
-	  * @return boolean[] 
+	  * @return boolean[]
 	  */
 	 public List<Integer> getDownNodes(int currentNode) {
 	      //记录变迁是否能发射结果
@@ -406,11 +398,10 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	    	  }
 	      }
 	      return result;
-	   }  
-	 
+	   }
+
 	/**
 	 * 检查当前状态是否已经在deadlock 状态里面
-	 * @param i
 	 * @param set
 	 * @return boolean true:deadlock false:邻界节点
 	 */
@@ -423,7 +414,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 		}
 		return true;
 	}
-	
+
 	/**
 	 * 检查当前状态是否已经发生过
 	 * @param node 待检查状态
@@ -432,7 +423,7 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	public static boolean ifOccured(Marking node) {
 		return preStatesMap.containsKey(node.hashCode());
 	}
-	
+
 	/**
 	 * 检查当前状态是否已经发生过
 	 * @param node 待检查状态
@@ -441,12 +432,4 @@ public class ReachabilityGraphAlgorithm extends BaseData{
 	public boolean ifOccured2(StateNode node) {
 		return preStatesMap.containsKey(node.hashCode());
 	}
-	
-	
-	//存可达图
-	/*public void addEdge(int start,int end,int transation){
-		adj[start][end] = transation;
-	}*/
-	
-
 }

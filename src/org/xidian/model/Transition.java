@@ -12,7 +12,7 @@ public class Transition extends DefaultWeightedEdge{
 	
 	private int[] Transition;
 
-	private int tranName; 
+	private int tranName;
 	
 	public Transition() {
 		

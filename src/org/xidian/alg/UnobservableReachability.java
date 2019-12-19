@@ -4,208 +4,211 @@ import java.util.*;
 //import java.lang.Iterable;
 
 //import java.util.Set;
+import org.xidian.model.StateNode;
 import org.xidian.utils.LoadModelUtil;
+import org.xidian.utils.PrintUtil;
 //import java.util.HashSet;
 
 /**
- * @Description 含有不可观变迁的状态分析算法
  * @author LP;
+ * @Description 含有不可观变迁的状态分析算法
  * @CreateDate [2018-6-28]
  */
-public class UnobservableReachability{
-	static int[][] StateShift;
-	static List<Integer> badAnddeadState = null;
-	static List<Integer> badState = null;
-	static List<Integer> criticalState = null;
-	static Map<Integer,String> ifobservable = null;
-	static List<Integer> unObservableTra = null;
-	static ReachabilityGraphAlgorithm rg = null;
-	static Queue<Integer> que = null;
-	static List<Integer> que1 = null;
-	
-	//存储含有不可观变迁时临界状态,输出结果
-	static StringBuffer sb = null;
+public class UnobservableReachability {
+    static int[][] StateShift;
+    static List<Integer> badAnddeadState = null;
+    static List<Integer> badState = null;
+    static List<Integer> criticalState = null;
+    static Map<Integer, String> ifobservable = null;
+    static List<Integer> unObservableTra = null;
+    static ReachabilityGraphAlgorithm rg = null;
+    static Queue<Integer> que = null;
+    static List<Integer> que1 = null;
 
-	static StringBuffer stateResult = null;
+    //存储含有不可观变迁时临界状态,输出结果
+    static StringBuffer sb = null;
+
+    static StringBuffer stateResult = null;
     static LinkedList<Integer> stateList;
-    
-public static String check(){
-	sb = new StringBuffer();
-	stateResult = new StringBuffer();
-	unObservableTra = new ArrayList<Integer>();
-	try {
-		rg = new ReachabilityGraphAlgorithm();
-		rg.createReachabilityGraph(null, 0);
-	} catch (CloneNotSupportedException e) {
-		e.printStackTrace();
-	}
- 	StepAlgorithm.analyse();
- 	
-	//死锁状态
- 	String deadState1 = StepAlgorithm.deadState;
- 	String[] deadState = deadState1.trim().split(" ");
- //	 deadstate = new LinkedList<Integer>();
+
+    public static String check() {
+        sb = new StringBuffer();
+        stateResult = new StringBuffer();
+        unObservableTra = new ArrayList<Integer>();
+        try {
+            rg = new ReachabilityGraphAlgorithm();
+            rg.createReachabilityGraph(null, 0);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        StepAlgorithm.analyse();
+
+        //死锁状态
+//        String deadState1 = StepAlgorithm.deadState;
+        List<StateNode> deadStates = ReachabilityGraphAlgorithm.deadStates;
+        String deadState1 = PrintUtil.printList(deadStates);
+        String[] deadState = deadState1.trim().split(" ");
+        //	 deadstate = new LinkedList<Integer>();
 // 	 for(int c = 0;c<deadState.length;c++){
 //		deadstate.add(Integer.parseInt(deadState[c].trim()));
 // 	 }
- 	//状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
- 	List<List<Integer>> adj = ReachabilityGraphAlgorithm.adjlist;
- 	
- 	int totalsize = adj.size()+deadState.length;
- 	StateShift = new int[totalsize+1][totalsize+1];
-	
-	for(int i = 0;i<adj.size();i++){
-		List<Integer> list = adj.get(i);
-		if(!list.isEmpty()){
-			for(int k=0;k<list.size();k=k+3){
-				addEdge(list.get(k),list.get(k+2),list.get(k+1));
-			}
-		}
-	}
- 	
- 	//变迁是否可观
- 	ifobservable = LoadModelUtil.ifobservable;
- 	int size = ifobservable.size()+1;
- 	for(int h=1;h<size;h++){
- 		if("N".equals(ifobservable.get(h))){
- 			unObservableTra.add(h);
- 				}
- 			}
- 	//坏状态和死锁状态
- 	StringBuffer badAnddeadState1 = StepAlgorithm.badAnddeadState2;
- 	String[] strs = badAnddeadState1.toString().split(" ");
- 	badAnddeadState = new LinkedList<Integer>();
- 	if(!"".equals(badAnddeadState1.toString())&&(badAnddeadState1.toString()!=null)){
-       for(int g =0;g<strs.length;g++){
-			
-			badAnddeadState.add(Integer.parseInt(strs[g].trim()));
-		}
- 
-     
-      //把原来的坏状态和死锁状态进行排队
- 		que = new  LinkedList<Integer>();
- 		for(int s:badAnddeadState){
- 			que.add(s);
- 		}
-  		
+        //状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
+        List<List<Integer>> adj = ReachabilityGraphAlgorithm.adjlist;
 
-		while(!que.isEmpty()){
-			int head = que.poll();
-			for(int m=1;m<StateShift.length;m++){            
-				for(int n=0;n<unObservableTra.size();n++){
-					if(StateShift[m][head] == unObservableTra.get(n)&&!badAnddeadState.contains(m)&&badAnddeadState.contains(head)){
-						que.add(m);
-						badAnddeadState.add(m);
-					}
-				}
-			}
-			
-		}
-	  
-	//   UnobservableReachability.BFS(StateShift.length);
+        int totalsize = adj.size() + deadState.length;
+        StateShift = new int[totalsize + 1][totalsize + 1];
 
-		//stateList = new LinkedList<Integer>();  //存放状态
-	   Set<Integer> set = new HashSet<Integer>();
-		for(int s = 0;s<StateShift.length;s++){
-			set.add(s);
-		}
+        for (int i = 0; i < adj.size(); i++) {
+            List<Integer> list = adj.get(i);
+            if (!list.isEmpty()) {
+                for (int k = 0; k < list.size(); k = k + 3) {
+                    addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
+                }
+            }
+        }
+
+        //变迁是否可观
+        ifobservable = LoadModelUtil.ifobservable;
+        int size = ifobservable.size() + 1;
+        for (int h = 1; h < size; h++) {
+            if ("N".equals(ifobservable.get(h))) {
+                unObservableTra.add(h);
+            }
+        }
+        //坏状态和死锁状态
+        StringBuffer badAnddeadState1 = StepAlgorithm.badAnddeadState2;
+        String[] strs = badAnddeadState1.toString().split(" ");
+        badAnddeadState = new LinkedList<Integer>();
+        if (!"".equals(badAnddeadState1.toString()) && (badAnddeadState1.toString() != null)) {
+            for (int g = 0; g < strs.length; g++) {
+
+                badAnddeadState.add(Integer.parseInt(strs[g].trim()));
+            }
+
+
+            //把原来的坏状态和死锁状态进行排队
+            que = new LinkedList<Integer>();
+            for (int s : badAnddeadState) {
+                que.add(s);
+            }
+
+
+            while (!que.isEmpty()) {
+                int head = que.poll();
+                for (int m = 1; m < StateShift.length; m++) {
+                    for (int n = 0; n < unObservableTra.size(); n++) {
+                        if (StateShift[m][head] == unObservableTra.get(n) && !badAnddeadState.contains(m) && badAnddeadState.contains(head)) {
+                            que.add(m);
+                            badAnddeadState.add(m);
+                        }
+                    }
+                }
+
+            }
+
+            //   UnobservableReachability.BFS(StateShift.length);
+
+            //stateList = new LinkedList<Integer>();  //存放状态
+            Set<Integer> set = new HashSet<Integer>();
+            for (int s = 0; s < StateShift.length; s++) {
+                set.add(s);
+            }
 //		 Iterator<Integer> iter = set.iterator();
-		 for(int t = 0;t<badAnddeadState.size();t++){
-		    for(int s = 0;s<StateShift.length;s++){                           
-					if(StateShift[s][badAnddeadState.get(t)]>0&&!badAnddeadState.contains(s)){ 
-						//while(!stateList.isEmpty()){
-						//	int index = stateList.getFirst();
-						Set<Integer> ss = new HashSet<>();
-						for(int g:set){
-							if(StateShift[s][g] > 0){
-								ss.add(g);
-							}
-						}
+            for (int t = 0; t < badAnddeadState.size(); t++) {
+                for (int s = 0; s < StateShift.length; s++) {
+                    if (StateShift[s][badAnddeadState.get(t)] > 0 && !badAnddeadState.contains(s)) {
+                        //while(!stateList.isEmpty()){
+                        //	int index = stateList.getFirst();
+                        Set<Integer> ss = new HashSet<>();
+                        for (int g : set) {
+                            if (StateShift[s][g] > 0) {
+                                ss.add(g);
+                            }
+                        }
 //						while(iter.hasNext()){
 //							if(StateShift[s][iter.next()] > 0){
 //								ss.add(iter.next());
 //							}
 //						}
-						if(badAnddeadState.containsAll(ss)){
-							badAnddeadState.add(s);
-						}
-					//	}
-						
-					}
-			}
-		}
-		
-		
-		
-     //临界状态
-     String criticalState1 = StepAlgorithm.Criticals;
-     String[] criticalState2 = criticalState1.trim().split(" ");
-     criticalState = new LinkedList<Integer>();
-     for(int j =0;j<criticalState2.length;j++){
-     	 criticalState.add(Integer.parseInt(criticalState2[j].trim()));
-     		}
- 
-		//Iterator<Integer> iter = stateList.iterator();
-     for(int n:badAnddeadState){
-     for(int m = 0;m<StateShift.length;m++){
-				if(StateShift[m][n]>0&&badAnddeadState.contains(n)&&!badAnddeadState.contains(m)&&!criticalState.contains(m)){
-					criticalState.add(m);
-				}
-		  }
-		}
+                        if (badAnddeadState.containsAll(ss)) {
+                            badAnddeadState.add(s);
+                        }
+                        //	}
 
-	 criticalState.removeAll(badAnddeadState);
+                    }
+                }
+            }
 
-     //临界状态下需要控制的变迁
-     Map<Integer,List<Integer>> map = new HashMap<Integer,List<Integer>>();
-     for (int c : criticalState){
-     	map.put(c,new ArrayList<Integer>());
-	 	for (int m : badAnddeadState){
-     		if (StateShift[c][m] > 0){
-				map.get(c).add(StateShift[c][m]);
+
+            //临界状态
+            String criticalState1 = StepAlgorithm.Criticals;
+            String[] criticalState2 = criticalState1.trim().split(" ");
+            criticalState = new LinkedList<Integer>();
+            for (int j = 0; j < criticalState2.length; j++) {
+                criticalState.add(Integer.parseInt(criticalState2[j].trim()));
+            }
+
+            //Iterator<Integer> iter = stateList.iterator();
+            for (int n : badAnddeadState) {
+                for (int m = 0; m < StateShift.length; m++) {
+                    if (StateShift[m][n] > 0 && badAnddeadState.contains(n) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
+                        criticalState.add(m);
+                    }
+                }
+            }
+
+            criticalState.removeAll(badAnddeadState);
+
+            //临界状态下需要控制的变迁
+            Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+            for (int c : criticalState) {
+                map.put(c, new ArrayList<Integer>());
+                for (int m : badAnddeadState) {
+                    if (StateShift[c][m] > 0) {
+                        map.get(c).add(StateShift[c][m]);
 //     			stateResult.append(c+"-->The transition that needs to be controlled in this state is : "+"t"+StateShift[c][m]+"\n");
-			}
-		}
-	 }
+                    }
+                }
+            }
 
 
-	stateResult.append("The analysis of containing unobservable transitions is as follows:\n");
-	//所有状态数
-	int totalstate = ReachabilityGraphAlgorithm.statesAmout;
-    stateResult.append("Total number of states："+totalstate+"\n\n\n");
- 	//输出好状态
-	stateResult.append("Good states："+(totalstate-criticalState.size()-badAnddeadState.size())+"\n");
-	stateResult.append("The good states are：");
-	for(int i= 1;i<=totalstate;i++){
-		if(!criticalState.contains(i)&&!badAnddeadState.contains(i)){
-			stateResult.append(i+" ");
-			}
-		}
- 	//输出临界状态
- 	stateResult.append("\n\nCritical States："+criticalState.size()+"\n");
-	stateResult.append("The critical States are：\n");
-	Set<Integer> keySet = map.keySet();
-	for(Integer key : keySet){
-		stateResult.append(key+"-->The transition that needs to be controlled in this state is : ");
-		for (int value : map.get(key))
-			stateResult.append("t"+value+"  ");
-		stateResult.append("\n");
-	}
- 	
-	//输出坏状态
-	StringBuffer sb2 = new StringBuffer();
-	String badstate = badAnddeadState.subList(deadState.length,badAnddeadState.size()).toString();
-	badstate = badstate.substring(1, badstate.length()-1);
-	String[] split2 = badstate.split(",");
-	for(String ss:split2){
-		sb2.append(ss+" ");
-	}
-	stateResult.append("\n\nBad States："+(badAnddeadState.size()-deadState.length)+"\n");
-	stateResult.append("The bad States are："+sb2);
- 	
- 	//输出死锁状态
- 	stateResult.append("\n\nDeadlock States："+deadState.length+"\n");
- 	stateResult.append("The deadlock States are："+deadState1);
+            stateResult.append("The analysis of containing unobservable transitions is as follows:\n");
+            //所有状态数
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            stateResult.append("Total number of states：" + totalstate + "\n\n\n");
+            //输出好状态
+            stateResult.append("Good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
+            stateResult.append("The good states are：");
+            for (int i = 1; i <= totalstate; i++) {
+                if (!criticalState.contains(i) && !badAnddeadState.contains(i)) {
+                    stateResult.append(i + " ");
+                }
+            }
+            //输出临界状态
+            stateResult.append("\n\nCritical States：" + criticalState.size() + "\n");
+            stateResult.append("The critical States are：\n");
+            Set<Integer> keySet = map.keySet();
+            for (Integer key : keySet) {
+                stateResult.append(key + "-->The transition that needs to be controlled in this state is : ");
+                for (int value : map.get(key))
+                    stateResult.append("t" + value + "  ");
+                stateResult.append("\n");
+            }
+
+            //输出坏状态
+            StringBuffer sb2 = new StringBuffer();
+            String badstate = badAnddeadState.subList(deadState.length, badAnddeadState.size()).toString();
+            badstate = badstate.substring(1, badstate.length() - 1);
+            String[] split2 = badstate.split(",");
+            for (String ss : split2) {
+                sb2.append(ss + " ");
+            }
+            stateResult.append("\n\nBad States：" + (badAnddeadState.size() - deadState.length) + "\n");
+            stateResult.append("The bad States are：" + sb2);
+
+            //输出死锁状态
+            stateResult.append("\n\nDeadlock States：" + deadState.length + "\n");
+            stateResult.append("The deadlock States are：" + deadState1);
  /*	
  	   //int[] initial = PetriModel.ininmarking.getMarking();
  	 if(badAnddeadState.contains(1)){
@@ -237,56 +240,55 @@ public static String check(){
 			    
 		}
  	 */
-	  return stateResult.toString();
- 	}
- 	else{
- 		return "The petri network is not deadlocked.";
- 	}
-}
+            return stateResult.toString();
+        } else {
+            return "The petri network is not deadlocked.";
+        }
+    }
 
-public static void addEdge(int start, int end, int weight) {
-	
-	StateShift[start][end] = weight;
-	
-}
+    public static void addEdge(int start, int end, int weight) {
 
-public static void BFS() {
-	
-	Set<Integer> set = new HashSet<Integer>();
-	for(int s = 0;s<StateShift.length;s++){
-		set.add(s);
-	}
-	 for(int t = 0;t<badAnddeadState.size();t++){
-	    for(int s = 0;s<StateShift.length;s++){                           
-				if(StateShift[s][badAnddeadState.get(t)]>0&&!badAnddeadState.contains(s)){
-					//stateList.addFirst(s); 
-					//while(!stateList.isEmpty()){
-					//	int index = stateList.getFirst();
-					Set<Integer> ss = new HashSet<>();
-					for(int g:set){
-						if(StateShift[s][g] > 0){
-							ss.add(s);
-						}
-					}
-					if(badAnddeadState.containsAll(ss)){
-						badAnddeadState.add(s);
-					}
-				//	}
-					
-				}
-		}
-	}
-	
-}
+        StateShift[start][end] = weight;
 
-public static  void remove(){              //得到坏状态
-	String deadState1 = StepAlgorithm.deadState;
-	String[] deadState = deadState1.trim().split(" ");
-	LinkedList<Integer> list = new LinkedList<>();
-	for(int d = 0;d<deadState.length;d++){
-		list.add(Integer.parseInt(deadState[d].trim()));
-	}
-	badAnddeadState.removeAll(list);	     
-  }
+    }
+
+    public static void BFS() {
+
+        Set<Integer> set = new HashSet<Integer>();
+        for (int s = 0; s < StateShift.length; s++) {
+            set.add(s);
+        }
+        for (int t = 0; t < badAnddeadState.size(); t++) {
+            for (int s = 0; s < StateShift.length; s++) {
+                if (StateShift[s][badAnddeadState.get(t)] > 0 && !badAnddeadState.contains(s)) {
+                    //stateList.addFirst(s);
+                    //while(!stateList.isEmpty()){
+                    //	int index = stateList.getFirst();
+                    Set<Integer> ss = new HashSet<>();
+                    for (int g : set) {
+                        if (StateShift[s][g] > 0) {
+                            ss.add(s);
+                        }
+                    }
+                    if (badAnddeadState.containsAll(ss)) {
+                        badAnddeadState.add(s);
+                    }
+                    //	}
+
+                }
+            }
+        }
+
+    }
+
+    public static void remove() {              //得到坏状态
+        String deadState1 = StepAlgorithm.deadState;
+        String[] deadState = deadState1.trim().split(" ");
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int d = 0; d < deadState.length; d++) {
+            list.add(Integer.parseInt(deadState[d].trim()));
+        }
+        badAnddeadState.removeAll(list);
+    }
 
 }

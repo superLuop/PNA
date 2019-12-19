@@ -138,7 +138,7 @@ public class LoadModelUtil {
     			String[] strTrans = posTran[1].trim().split(" ");
     			
     			for(int t = 0;t < strTrans.length;t++) {
-    				if(strTrans[t] == null) {
+    				if(strTrans[t] == null || "".equals(strTrans[t])) {
     					continue;
     				}
 //    				System.out.println(strTrans[t]);
@@ -185,19 +185,19 @@ public class LoadModelUtil {
 			    				if (posTrans[j].contains(":")) {
 			    					String[] posTran = posTrans[j].split(":");
 			    					//Integer.parseInt(key[0]:拿到不可靠资源库所的后置集的后置集，即P··
-			    					
+
 				    				resourceWeightMap.get(resourcePlace).add(Integer.parseInt(posTran[1]));
 								}else {
-									
+
 				    				resourceWeightMap.get(resourcePlace).add(1);
 								}
 			    			}
-			    			
-//			    			System.out.println(resourcePlace);   
-			    					    			
+
+//			    			System.out.println(resourcePlace);
+
 			    		}
 		    		}else {
-		    			
+
 		    			if(badTrans.contains(Integer.parseInt(preKey[i]))) {
 		    				resourceWeightMap.put(resourcePlace, new ArrayList<Integer>());
 //		    				System.out.println(resourcePlace);
@@ -209,18 +209,18 @@ public class LoadModelUtil {
 			    				if (posTrans[j].contains(":")) {
 			    					String[] posTran = posTrans[j].split(":");
 			    					//Integer.parseInt(key[0]:拿到不可靠资源库所的后置集的后置集，即P··
-			    					
+
 				    				resourceWeightMap.get(resourcePlace).add(Integer.parseInt(posTran[1]));
 								}else {
-									
+
 				    				resourceWeightMap.get(resourcePlace).add(1);
 								}
 			    			}
 			    		}
 					}
 	    		}
-	    		
-	    		
+
+
 			 }
     	}
  

@@ -122,7 +122,6 @@ class StateNode implements Cloneable{
 	private int stateNo;  
 	
 	/**
-	 * @param model PetriModel
 	 * @param state 状态
 	 * @param stateNo 状态编号
 	 */

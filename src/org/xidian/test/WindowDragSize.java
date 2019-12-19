@@ -63,7 +63,7 @@ public static void main(String[] args) {
 
                 ImageIcon icon =
 
-                        new ImageIcon("C:\\Users\\asus\\Desktop\\新建文件夹\\6.jpg");
+                        new ImageIcon("C:\\Users\\Administrator\\Desktop\\temp\\background1.jpg");
 
                 // 图片随窗体大小而变化
 
