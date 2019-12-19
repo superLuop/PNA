@@ -28,7 +28,7 @@ public class ImportAndExportFileListener extends JFrame implements ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		if(actionEvent.getSource() == importFileButton){
+		if(importFileButton.equals(actionEvent.getSource())){
 			JFileChooser jFileChooser = new JFileChooser();  
 	        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);  
 	        jFileChooser.showDialog(new JLabel(), UIContants.UI_CHOOSE);  

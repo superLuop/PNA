@@ -91,11 +91,11 @@ public class MenuPanel extends JPanel {
 		ControlStepPredictButton.setContentAreaFilled(false);
 		//添加按钮
 //		add(basicPropertyButton);
+		add(inequationButton);
+		add(siphonAnalysisButton);
 		add(reachabilityGraphButton);
 		add(localReachabilityGraphButton);
 		add(pathButton);
-		add(siphonAnalysisButton); 
-		add(inequationButton);
 //		add(dynamicPathButton);
 	    add(unControllableReachabilityGraphButton);
 	    add(unobservableReachabilityButton);

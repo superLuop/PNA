@@ -25,17 +25,17 @@ public class OptionListener extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		ImportAndExportFileListener importExportFileListener = new ImportAndExportFileListener(importFileButton);
-		if (actionEvent.getSource() == importFileButton) {			
+		if (importFileButton.equals(actionEvent.getSource())) {
 			importFileButton.addActionListener(importExportFileListener);
 			return;
-		} else if (actionEvent.getSource() == exportFileButton){		
+		} else if (exportFileButton.equals(actionEvent.getSource())){
 			exportFileButton.addActionListener(importExportFileListener);
 			return;
-		}else if (actionEvent.getSource() == declareRationButton){
+		}else if (declareRationButton.equals(actionEvent.getSource())){
 			JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_NAME1);
-//		JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_COPYRIGHT);
+//			JOptionPane.showMessageDialog(null, UIContants.UI_SOFTWARE_COPYRIGHT);
 			return;
-		}else if (actionEvent.getSource() == exitButton){
+		}else if (exitButton.equals(actionEvent.getSource())){
 			JOptionPane.showMessageDialog(null, "The programming is about to quit...");
 			System.exit(0);
 		}

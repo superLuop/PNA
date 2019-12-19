@@ -7,95 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1425fcb1-848e-4b3e-bad6-26ec4efd7619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PNA_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/background2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PNA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PNA.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/META-INF/PNA.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/background1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/dd.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/declaration.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/exit.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/export.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/import.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/menu_entered.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/menu_pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/school_logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/scrollpane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/images/xian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/BaseData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ControlStepPredict.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/CyclePath.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/InequalityAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$PetriNet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfPlaces.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm$SetOfTransitions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/SiphonAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlAndUnObserveAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlStepPredict.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/reliableAlgorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/backup/RGDataModel_base.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/CriticalNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/GraphModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Marking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/PetriModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/RobustNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Stacks.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/StateNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Transition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/temp/PNMatrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Marking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Snippet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/StateNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Test13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/Test6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestCycle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestHash1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestSort.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestStatic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/TestTreeSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/WindowDragSize$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/WindowDragSize$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/WindowDragSize.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/hg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/test/test11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Background.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImageButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImportAndExportFileListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/LocalGraphParametersDialog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/LocalGraphParametersListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MainFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MainFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MainPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/UIContants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/FileUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/PathUtil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/PathUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/PrintUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/ValidateUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/Background.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImportAndExportFileListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImportAndExportFileListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/MenuPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/backup/RGDataModel_base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/backup/RGDataModel_base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/ImportAndExportFileListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/ImportAndExportFileListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/PathUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/PathUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +179,7 @@
       <workItem from="1576632723458" duration="28676000" />
       <workItem from="1576718779405" duration="18741000" />
       <workItem from="1576749107615" duration="108000" />
-      <workItem from="1576749317880" duration="1587000" />
+      <workItem from="1576749317880" duration="9484000" />
     </task>
     <task id="LOCAL-00001" summary="version1.0">
       <created>1574153924873</created>
@@ -292,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576745885518</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <created>1576753390417</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576753390417</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,30 +255,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576747303274" />
-    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1576745883724">
+    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1576753388841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576745883724" />
+    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1576753388841" />
     <state x="761" y="331" key="FileChooserDialogImpl" timestamp="1576749441169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="761" y="331" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576749441169" />
-    <state width="1876" height="245" key="GridCell.Tab.0.bottom" timestamp="1576753342276">
+    <state width="1568" height="208" key="GridCell.Tab.0.bottom" timestamp="1576765054367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="245" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576753342276" />
-    <state width="1876" height="245" key="GridCell.Tab.0.center" timestamp="1576753342276">
+    <state width="1568" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576765054367" />
+    <state width="1568" height="208" key="GridCell.Tab.0.center" timestamp="1576765054367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="245" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576753342276" />
-    <state width="1876" height="245" key="GridCell.Tab.0.left" timestamp="1576753342276">
+    <state width="1568" height="208" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576765054367" />
+    <state width="1568" height="208" key="GridCell.Tab.0.left" timestamp="1576765054367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="245" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576753342276" />
-    <state width="1876" height="245" key="GridCell.Tab.0.right" timestamp="1576753342276">
+    <state width="1568" height="208" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576765054367" />
+    <state width="1568" height="208" key="GridCell.Tab.0.right" timestamp="1576765054367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="245" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576753342276" />
+    <state width="1568" height="208" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576765054367" />
     <state x="621" y="274" key="NewModule_or_Project.wizard" timestamp="1576749471526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -356,10 +287,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576750164031" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1576745950273">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1576753400011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576745950273" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1576753400011" />
     <state x="792" y="283" key="extract.method.dialog" timestamp="1576567081748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

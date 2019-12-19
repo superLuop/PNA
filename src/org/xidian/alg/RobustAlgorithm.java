@@ -187,10 +187,10 @@ public class RobustAlgorithm extends BaseData {
             }
 
             //输出稳健步长
-//            if (step == -1)
-//                stateResult.append("\n\nNo robust step!");
-//            else
-//                stateResult.append("\n\n\nThe robust step is : " + step);
+            if (step == -1)
+                stateResult.append("\n\nNo robust step!");
+            else
+                stateResult.append("\n\n\nThe robust step is : " + step);
         } else {
             //原来不含有坏死状态，即原网无死锁
             stateResult.append("\nThe original Petri net has no deadlock,but due to the existence of unreliable resources:");
@@ -277,10 +277,10 @@ public class RobustAlgorithm extends BaseData {
             printBadRobust(badRobustStates);
 
             //输出稳健步长
-//            if (step == -1)
-//                stateResult.append("\n\nNo robust step!");
-//            else
-//                stateResult.append("\n\nThe robust step is : " + step);
+            if (step == -1)
+                stateResult.append("\n\nNo robust step!");
+            else
+                stateResult.append("\n\nThe robust step is : " + step);
         }
 
         return stateResult.toString();
@@ -324,15 +324,15 @@ public class RobustAlgorithm extends BaseData {
             }
         }
 
-//        Set<Integer> badTranSet = new HashSet<Integer>();
-//        for (int t : badTrans){
-//            badTranSet.add(t);
-//        }
-//
-//        if (badTrans.isEmpty())
-//            step = -1;
-//        else
-//            step = robustPath(graphModel.getCostMatrix().getMatrix(), badTranSet);
+        Set<Integer> badTranSet = new HashSet<Integer>();
+        for (int t : badTrans){
+            badTranSet.add(t);
+        }
+
+        if (badTrans.isEmpty())
+            step = -1;
+        else
+            step = robustPath(graphModel.getCostMatrix().getMatrix(), badTranSet);
 
         //3.删除故障相关变迁
         for (int el : badTrans) {

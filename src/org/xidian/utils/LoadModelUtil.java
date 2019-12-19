@@ -243,10 +243,14 @@ public class LoadModelUtil {
     	for(int i = 0; i<iniMarking.size();i++) {
     		marking[i] = iniMarking.get(i); 
     	}                                               //初始标识
+
     	//4.清空已存在基础模型数据
 		if(baseData != null) {
 			clearBaseData();
+			//重新设置基础模型数据
+//			BaseData.rootState = new StateNode(PetriModel.ininmarking.getMarking(), 1, 1);
 		}
+
     	//初始化变量
     	new PetriModel(new Matrix(preMatrix, "preMatrix"), 
     			new Matrix(posMatrix, "posMatrix"), 
@@ -343,6 +347,7 @@ public class LoadModelUtil {
 		BaseData.deadStates = null;
 		BaseData.graphModel = null;
 		BaseData.grapht = null;
+		//重新设置基础模型数据
 		BaseData.rootState = new StateNode(PetriModel.ininmarking.getMarking(), 1, 1);
 	}
 	

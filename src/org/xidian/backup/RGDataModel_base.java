@@ -21,10 +21,10 @@ public class RGDataModel_base {
 	public String destPath; //输出路径
 	public StateNode rootState; //初始状态
 	public static Map<Integer,StateNode> preStatesMap = new HashMap<Integer,StateNode>(1000); //初始化1000个状态
-	
+
 	/**
-	 * @param rootState 初始状态
-	 * @param model PetriModel
+	 *
+	 * @param destPath
 	 */
 	public RGDataModel_base( String destPath) {
 		this.destPath = destPath;
