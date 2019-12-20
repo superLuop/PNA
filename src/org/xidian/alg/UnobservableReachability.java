@@ -55,18 +55,6 @@ public class UnobservableReachability {
         //状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
         List<List<Integer>> adj = ReachabilityGraphAlgorithm.adjlist;
 
-        int totalsize = adj.size() + deadState.length;
-        StateShift = new int[totalsize + 1][totalsize + 1];
-
-        for (int i = 0; i < adj.size(); i++) {
-            List<Integer> list = adj.get(i);
-            if (!list.isEmpty()) {
-                for (int k = 0; k < list.size(); k = k + 3) {
-                    addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
-                }
-            }
-        }
-
         //变迁是否可观
         ifobservable = LoadModelUtil.ifobservable;
         int size = ifobservable.size() + 1;
@@ -85,6 +73,18 @@ public class UnobservableReachability {
                 badAnddeadState.add(Integer.parseInt(strs[g].trim()));
             }
 
+            int totalsize = adj.size() + deadState.length;
+
+            StateShift = new int[totalsize + 1][totalsize + 1];
+
+            for (int i = 0; i < adj.size(); i++) {
+                List<Integer> list = adj.get(i);
+                if (!list.isEmpty()) {
+                    for (int k = 0; k < list.size(); k = k + 3) {
+                        addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
+                    }
+                }
+            }
 
             //把原来的坏状态和死锁状态进行排队
             que = new LinkedList<Integer>();

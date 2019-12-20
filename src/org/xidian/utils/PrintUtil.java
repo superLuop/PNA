@@ -52,18 +52,20 @@ public class PrintUtil {
 	 */
 	public static String printList(List<StateNode> s) {
 		int flag = 1;
-		StringBuffer tem = new StringBuffer();
+//		StringBuffer tem = new StringBuffer();
 		
 		StringBuffer tem2 = new StringBuffer();
 		
-		tem.append("total " + s.size() + "\n");
-		for(StateNode el : s) {
-			if(flag % 30 == 0) {
-				tem.append("\n");
+//		tem.append("total " + s.size() + "\n");
+		if (s != null && (s.size() > 0)){
+			for(StateNode el : s) {
+//				if(flag % 30 == 0) {
+//					tem.append("\n");
+//				}
+//				tem.append(el.getStateNo()+" ");
+				tem2.append(el.getStateNo()+" ");
+				flag++;
 			}
-//			tem.append(el.getStateNo()+" ");
-			tem2.append(el.getStateNo()+" ");
-			flag++;
 		}
 		return tem2.toString();
 	}

@@ -39,8 +39,8 @@ public class Matrix {
 	}
 
 	/**
-	 * @param i place个数
-	 * @param j token个数
+	 * @param rows place个数
+	 * @param cols token个数
 	 * @param matrixName 矩阵名称
 	 */
 	public Matrix(int rows, int cols, String matrixName) {
@@ -50,8 +50,8 @@ public class Matrix {
 	
 	/**
 	 * 变迁矩阵（弧）
-	 * @param i place个数
-	 * @param j token个数
+	 * @param rows place个数
+	 * @param cols token个数
 	 * @param matrixName 矩阵名称
 	 */
 	public Matrix(int rows, int cols, String matrixName, boolean flag) {
@@ -104,17 +104,21 @@ public class Matrix {
 	
 	/**
 	 * 修改矩阵中的值
-	 * @param i
-	 * @param j
+	 * @param source
+	 * @param destination
 	 * @return 总共修改个数
 	 */
 	public static int reviseValue(int[][] matrix, int source, int destination) {
 		int count = 0;
-		for(int i = 0; i < matrix.length; i++) {
-			for(int j = 0; j< matrix[0].length; j++) {
-				if(matrix[i][j] == source) {
-					matrix[i][j] = destination;
-					count++;
+		if (matrix != null && matrix.length > 0){
+			for(int i = 0; i < matrix.length; i++) {
+				if ( matrix[i] != null &&  matrix[i].length > 0){
+					for(int j = 0; j< matrix[i].length; j++) {
+						if(matrix[i][j] == source) {
+							matrix[i][j] = destination;
+							count++;
+						}
+					}
 				}
 			}
 		}
@@ -208,8 +212,7 @@ public class Matrix {
 	
 	/**
 	 * 返回数组中非零元素下标+1，即实际状态编号
-	 * @param i
-	 * @param matrix
+	 * @param array
 	 * @return
 	 */
 	public static List<Integer> getElementsExceptZero(int[] array) {
@@ -227,8 +230,7 @@ public class Matrix {
 	
 	/**
 	 * 返回数组中key:非零元素下标+1,即实际状态编号,value:具体值
-	 * @param i
-	 * @param matrix
+	 * @param array
 	 * @return
 	 */
 	public static Map<Integer, Integer> getElementsIndexAndValueExceptZero(int[] array) {
@@ -243,7 +245,6 @@ public class Matrix {
 	
 	/**
 	 * 返回矩阵中行或列不是全为0项的下标（+1），真实状态编号
-	 * @param i
 	 * @param matrix
 	 * @return
 	 */

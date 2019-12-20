@@ -218,15 +218,13 @@ public class LoadModelUtil {
 			    		}
 					}
 	    		}
-
-
 			 }
     	}
  
 		System.out.println(badTrans);
-		for (Integer key : resourceWeightMap.keySet()) {
-			System.out.println(key + ":" + resourceWeightMap.get(key));
-		}
+//		for (Integer key : resourceWeightMap.keySet()) {
+//			System.out.println(key + ":" + resourceWeightMap.get(key));
+//		}
 		
     	
     	//3.得到模型

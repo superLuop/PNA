@@ -52,17 +52,6 @@ public class UnControlAndUnObserveAlgorithm {
         List<StateNode> deadStates = ReachabilityGraphAlgorithm.deadStates;
         String deadState1 = PrintUtil.printList(deadStates);
         String[] deadState = deadState1.trim().split(" ");
-        int totalsize = adj.size() + deadState.length;
-        StateShift = new int[totalsize + 1][totalsize + 1];
-
-        for (int i = 0; i < adj.size(); i++) {
-            List<Integer> list = adj.get(i);
-            if (!list.isEmpty()) {
-                for (int k = 0; k < list.size(); k = k + 3) {
-                    addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
-                }
-            }
-        }
 
         //变迁是否可观
         ifobservable = LoadModelUtil.ifobservable;
@@ -78,6 +67,18 @@ public class UnControlAndUnObserveAlgorithm {
         badAnddeadState = UnControllableReachabilityGraphAlgorithm.badAnddeadState;
 //     	System.out.println(badAnddeadState);
         if (!badAnddeadState.isEmpty() && (badAnddeadState != null)) {
+
+            int totalsize = adj.size() + deadState.length;
+            StateShift = new int[totalsize + 1][totalsize + 1];
+
+            for (int i = 0; i < adj.size(); i++) {
+                List<Integer> list = adj.get(i);
+                if (!list.isEmpty()) {
+                    for (int k = 0; k < list.size(); k = k + 3) {
+                        addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
+                    }
+                }
+            }
 
             //把仅含不可控变迁时的坏状态和死锁状态进行排队
             que = new LinkedList<Integer>();
