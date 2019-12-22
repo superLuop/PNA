@@ -8,12 +8,12 @@ public class UIContants {
 	/**
 	 * 1:英文，0：中文
 	 */
-	public final static int IS_ENGLISH = 0;
+	public final static int IS_ENGLISH = 1;
 	
 	/**
 	 * 软件名称 
 	 */
-	public final static String UI_SOFTWARE_NAME = "  Xidian University";
+//	public final static String UI_SOFTWARE_NAME = "  Discrete event system analysis platform";
 	/**
 	 * 软件版权
 	 */
@@ -147,9 +147,9 @@ public class UIContants {
 	/**
 	 * 软件名称
 	 */
-	public final static String UI_SOFTWARE_NAME1 = "  Discrete event system analysis platform";
+	public final static String UI_SOFTWARE_NAME = "  Discrete event system analysis platform";
 	/**
-	 * 软件名称
+	 * 软件版权
 	 */
 	public final static String UI_SOFTWARE_COPYRIGHT = "Xidian University";
 	/**
@@ -167,7 +167,7 @@ public class UIContants {
 	/**
 	 * 主界面工具栏-可达图分析按钮名称
 	 */
-	public final static String UI_BISIC_PROPERTY = "BasicProperty";
+	public final static String UI_BASIC_PROPERTY = "BasicProperty";
 	/**
 	 * 主界面工具栏-可达图分析按钮名称
 	 */
@@ -187,7 +187,7 @@ public class UIContants {
 	/**
 	 * 主界面工具栏-P/T不等式分析按钮名称
 	 */
-	public final static String UI_INEQUATION= "P/T Inequality";	
+	public final static String UI_INEQUALITY= "P/T Inequality";
 	/**
 	 * 主界面工具栏-动态步长分析按钮名称
 	 */
@@ -243,15 +243,15 @@ public class UIContants {
 	/**
 	 * 声明
 	 */
-	public final static String UI_DECLARERATION = "Help";
+	public final static String UI_DECLARATION = "declaration";
 	/**
 	 * 字体大小
 	 */
-	public final static int UI_FONT_SIZE = 16;
+	public final static int UI_FONT_SIZE = 18;
 	/**
 	 * 字体
 	 */
-	public final static String UI_FONT_NAME="Boldface";
+	public final static String UI_FONT_NAME="Times New Roman";
 	/**
 	 * 内测中，即将开放使用！
 	 */
@@ -284,9 +284,16 @@ public class UIContants {
 	 * 文件另存为
 	 */
 	public final static String UI_FILE_SAVE = "File saved as";
-
 	/**
 	 * 退出
 	 */
 	public static final String UI_EXIT = "exit";
+	/**
+	 * 初始化
+	 */
+    public static final String UI_INIT = "init";
+	/**
+	 * 初始化数据
+	 */
+//	public static final String UI_INIT_DATA = "init...";
 }

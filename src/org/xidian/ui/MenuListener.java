@@ -4,15 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import org.xidian.alg.*;
-//import org.xidian.alg.RobustAlgorithm;
-
-//import org.xidian.utils.LoadModelUtil;
 
 /**
  * 菜单按钮监听类
@@ -27,7 +23,7 @@ public class MenuListener implements ActionListener{
 	private JButton basicPropertyButton, reachabilityGraphButton, localReachabilityGraphButton, 
 	                pathButton, siphonAnalysisButton, inequationButton,robustButton,uncontrollableandunobservableButton,unobservableReachabilityButton,unControllableReachabilityGraphButton,StepPredictButton,ControlStepPredictButton;
 	
-	private MainPanel mainPanel;
+	protected static MainPanel mainPanel;
 		
 	public MenuListener(JButton basicPropertyButton, JButton reachabilityGraphButton,JButton localReachabilityGraphButton, JButton pathButton, JButton siphonAnalysisButton, JButton inequationButton,JButton unControllableReachabilityGraphButton,JButton unobservableReachabilityButton,JButton uncontrollableandunobservableButton,JButton robustButton,JButton StepPredictButton,JButton ControlStepPredictButton) {		
 		this.basicPropertyButton = basicPropertyButton;

@@ -29,10 +29,10 @@ public class ImportAndExportFileListener extends JFrame implements ActionListene
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if(importFileButton.equals(actionEvent.getSource())){
-			JFileChooser jFileChooser = new JFileChooser();  
-	        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);  
-	        jFileChooser.showDialog(new JLabel(), UIContants.UI_CHOOSE);  
-	        File file = jFileChooser.getSelectedFile();  
+			JFileChooser jFileChooser = new JFileChooser();
+	        jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+	        jFileChooser.showDialog(new JLabel(), UIContants.UI_CHOOSE);
+	        File file = jFileChooser.getSelectedFile();
 	        if(file != null && file.getAbsolutePath() != null) {
 	        	Long start = FileUtil.getCurrentTime();
 	        	//初始化模型
@@ -42,13 +42,15 @@ public class ImportAndExportFileListener extends JFrame implements ActionListene
 	        	JOptionPane.showMessageDialog(null, (UIContants.UI_IMPORT_SUCCESS + (System.currentTimeMillis() - start) + "ms"));
 	        }
 		} else {
-			fileDialog = new FileDialog(this, UIContants.UI_FILE_SAVE, FileDialog.SAVE);		
+			fileDialog = new FileDialog(this, UIContants.UI_FILE_SAVE, FileDialog.SAVE);
 			fileDialog.setVisible(true);
-		    File file = new File(fileDialog.getDirectory(), fileDialog.getFile());	 
+			Long startTime = FileUtil.getCurrentTime();
+		    File file = new File(fileDialog.getDirectory(), fileDialog.getFile());
 		    String string = mainPanel.getText();
 		    //导出
 		    FileUtil.write(file.getAbsolutePath() + ".txt", string, false);
-		}			
+			JOptionPane.showMessageDialog(null, (UIContants.UI_EXPORT_SUCCESS + (System.currentTimeMillis() - startTime) + "ms"));
+		}
 	}
 
 }

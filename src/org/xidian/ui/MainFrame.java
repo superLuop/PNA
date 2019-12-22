@@ -27,16 +27,14 @@ public class MainFrame extends JFrame {
 	}
 	
 	public MainFrame() {
-		super(UIContants.UI_SOFTWARE_NAME1);
-		//super(UIContants.UI_SOFTWARE_NAME);
+		super(UIContants.UI_SOFTWARE_NAME);
 		init();
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(
 				new WindowAdapter() {
 					public void windowClosing(WindowEvent e) {
-						int result = JOptionPane.showConfirmDialog(null, "confirm quit?", "quit window",
-								JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-						if(result == JOptionPane.OK_OPTION){
+						int r=JOptionPane.showConfirmDialog(null,"confirm quit?","confirmDialog",JOptionPane.YES_NO_OPTION);
+						if(r==JOptionPane.YES_OPTION){
 							System.exit(0);
 						}
 					}

@@ -30,10 +30,10 @@ public final class FileUtil {
         BufferedReader br = null;
         FileReader fb = null;
         StringBuffer sb = new StringBuffer();
+        String str = null;
         try{
             fb = new FileReader(file);
             br = new BufferedReader(fb);
-            String str = null;
             int index = 0;
             while (((spec == null) || index++ < spec) && (str = br.readLine()) != null) {
                 sb.append(str + "\n");

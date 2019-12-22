@@ -18,12 +18,12 @@ public class MenuPanel extends JPanel {
 		setPreferredSize(new Dimension((int)(screen.getWidth()*0.17), (int)(screen.getHeight()*0.8)));
 		this.setOpaque(false);		
 		//设置按钮样式
-		ImageButton basicPropertyButton = new ImageButton( "menu",UIContants.UI_BISIC_PROPERTY,16);
+		ImageButton basicPropertyButton = new ImageButton( "menu",UIContants.UI_BASIC_PROPERTY,16);
 		ImageButton reachabilityGraphButton = new ImageButton( "menu",UIContants.UI_REACHABILITY_GRAPH_BUTTON_NAME,16);
 		ImageButton localReachabilityGraphButton = new ImageButton("menu",UIContants.UI_LOCAL_REACHABILITY_GRAPH_BUTTON_NAME,16);
 		ImageButton pathButton = new ImageButton("menu",UIContants.UI_PATH_BUTTON_NAME,16);
 		ImageButton siphonAnalysisButton = new ImageButton("menu",UIContants.UI_SIPHON_ANALYSIS,16);
-		ImageButton inequationButton = new ImageButton("menu",UIContants.UI_INEQUATION,16);
+		ImageButton inequationButton = new ImageButton("menu",UIContants.UI_INEQUALITY,16);
 		ImageButton dynamicPathButton = new ImageButton("menu",UIContants.UI_DYNAMIC_PATH_ANALYSIS,16);	
 		ImageButton unControllableReachabilityGraphButton = new ImageButton("menu",UIContants.UI_UNCONTROLLABLE_ANALYSIS,16);
 		ImageButton unobservableReachabilityButton = new ImageButton("menu",UIContants.UI_UNOBSERVABLE_ANALYSIS,16);

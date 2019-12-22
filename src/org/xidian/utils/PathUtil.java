@@ -22,15 +22,16 @@ public class PathUtil {
 		resource.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser jfc = new JFileChooser();
-				if(jfc.showOpenDialog(f)==JFileChooser.APPROVE_OPTION ){
+				int returnVal = jfc.showOpenDialog(f);
+				if(returnVal==JFileChooser.APPROVE_OPTION ){
 					//解释下这里,弹出个对话框,可以选择要上传的文件,如果选择了,就把选择的文件的绝对路径打印出来,有了绝对路径,通过JTextField的setText就能设置进去了,那个我没写
 					//System.out.println(jfc.getSelectedFile().getAbsolutePath());
 					resourcePath = jfc.getSelectedFile().getAbsolutePath();
-					destPath = jfc.getSelectedFile().getParentFile().getPath(); 
+					destPath = jfc.getSelectedFile().getParentFile().getPath();
 				}
 			}
 		});
-		
+
 		f.add(resource);
 		f.setLayout(new FlowLayout());
 		f.setSize(240, 180);

@@ -20,9 +20,7 @@ public class StateNode implements Cloneable{
 	private int depth;   //节点深度
 	
 	/**
-	 * @param model PetriModel
 	 * @param state 状态
-	 * @param childNodes 孩子节点
 	 * @param stateNo 状态编号
 	 */
 	public StateNode(int[] state, int stateNo) {
@@ -32,9 +30,7 @@ public class StateNode implements Cloneable{
 	}
 	
 	/**
-	 * @param model PetriModel
 	 * @param state 状态
-	 * @param childNodes 孩子节点
 	 * @param depth 状态深度
 	 * @param stateNo 状态编号
 	 */

@@ -30,7 +30,7 @@ public class CyclePath {
     private List<Integer> pathList;
     private List<List<Integer>> allPathList;
      
-    public CyclePath(GraphModel graphModel, String destFilePath) {
+    public CyclePath(GraphModel graphModel) {
     	pathList = new LinkedList<Integer>();
     	allPathList = new LinkedList<List<Integer>>();
 		this.graphModel = graphModel;
@@ -44,7 +44,7 @@ public class CyclePath {
 	    	//System.out.println("没有环");
 	    }
 	    
-	    System.out.println(allPathList.size());
+//	    System.out.println(allPathList.size());
 	    validatePath();
 	 }
 
