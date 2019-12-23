@@ -13,7 +13,7 @@ public class StateNode implements Cloneable{
 	
 	private boolean isChange =  false;  //到到死锁状态的距离,是否被计算过
 	private int toDeadLength = 1;  //到到死锁状态的距离
-	private int[] state; 
+	private int[] state;
 	private int stateNo;  
 	private boolean ifDeadlock = false;  //是否死锁状态
 	private List<StateNode> childNodes;  //该点孩子节点

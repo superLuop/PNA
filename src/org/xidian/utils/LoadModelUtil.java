@@ -1,17 +1,9 @@
 package org.xidian.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import org.xidian.alg.BaseData;
-import org.xidian.alg.ReachabilityGraphAlgorithm;
 import org.xidian.model.Marking;
 import org.xidian.model.Matrix;
 import org.xidian.model.PetriModel;
@@ -24,33 +16,34 @@ import org.xidian.model.Transition;
  * @version 1.0 2016-5-16
  */
 public class LoadModelUtil {
-	
-	
-	public static Map<Integer,String> ifcontrollable = new HashMap<Integer, String>();
-	public static Map<Integer,String> ifobservable = new HashMap<Integer, String>();
-	public static Map<Integer,String> ifreliable = new HashMap<Integer, String>();
+
+
+	public static Map<Integer,String> ifcontrollable = null;
+	public static Map<Integer,String> ifobservable = null;
+	public static Map<Integer,String> ifreliable = null;
 	
 	//资源是否可靠
- 	public static LinkedList<Integer> up = new LinkedList<Integer>();  //up用于存放不可靠资源库所
- 	static LinkedList<Integer> rp = new LinkedList<Integer>();  //rp用于存放资源库所
+ 	public static LinkedList<Integer> up = null;  //up用于存放不可靠资源库所
+	public static LinkedList<Integer> rp = null;  //rp用于存放资源库所
 
-	static BaseData baseData;
+//	public static BaseData baseData;
 
-	static int[][] preMatrix;	//前置矩阵
-	static int[][] posMatrix;	//后置矩阵
-	static List<Integer> iniMarking;  //初始marking
+	public static int[][] preMatrix;	//前置矩阵
+	public static int[][] posMatrix;	//后置矩阵
+	public static List<Integer> iniMarking;  //初始marking
 	
 	static int defaultTranCount = 1000; //默认最大变迁数量为1000
-	static int trueMaxTran = 0; //实际最大的变迁编号
+	public static int trueMaxTran = 0; //实际最大的变迁编号
 	
 
 	public static Set<Integer> badTrans = null;
 	public static Map<Integer, List<Integer>> resourceWeightMap = null;
 	static List<Integer> weight = null;
-	static Map<String, List<Integer>> Trans = new LinkedHashMap<String, List<Integer>>();
+	public static Map<String, List<Integer>> Trans = null;
 	static String filePath; //文件位置
-	
-	 
+	public static int[] transition;
+	public static int[] marking;
+
 	/**
 	 * 加载xxx.pnt文件
 	 * @param filePath 文件具体路径
@@ -81,6 +74,9 @@ public class LoadModelUtil {
     	String[] split2 = pattern.split(split1[0].trim());
     	String[] split3 = pattern.split(split1[1].trim());
 
+    	//不可控变迁和不可观变迁
+		ifcontrollable = new HashMap<Integer, String>();
+		ifobservable = new HashMap<Integer, String>();
     	for(int i=1;i<split2.length;i++){
     		if(split2[i].equals("@")){
     			break;
@@ -95,6 +91,8 @@ public class LoadModelUtil {
     		}
     	}
 
+    	//不可靠资源
+		ifreliable = new HashMap<Integer, String>();
     	for(int j = 1;j<split3.length;j++){
     		if(split3[j].equals("@")){
     			break;
@@ -108,12 +106,14 @@ public class LoadModelUtil {
     	posMatrix = new int[strs.length-2][defaultTranCount];
     	iniMarking = new LinkedList<Integer>();
 
+    	up = new LinkedList<Integer>();
 	 	int num = ifreliable.hashCode();
 	 	for(int h=1;h<num;h++){
 	 		if("u".equals(ifreliable.get(h))){
 	 			up.add(h);
 	 		}
 	 	}
+	 	rp = new LinkedList<Integer>();
 	 	for(int i = 1;i < num;i++) {
     		if("u".equals(ifreliable.get(i)) || "r".equals(ifreliable.get(i))){
 	 			rp.add(i);
@@ -122,6 +122,7 @@ public class LoadModelUtil {
 //	 	System.out.println(up);
 //	   	System.out.println(rp);
         //2.解析
+		Trans = new LinkedHashMap<String, List<Integer>>();
     	for(int i = 1; i < strs.length; i++) {
     		if(strs[i].equals("@")) break;
     		parseModelLine(strs[i]);
@@ -135,26 +136,32 @@ public class LoadModelUtil {
     			trueMaxTran, preMatrix);
     	posMatrix = Matrix.copyMatrix(0, 0, strs.length-2, 
     			trueMaxTran, posMatrix);
-    	
-    	int[] transition = new int[trueMaxTran];
+
+    	transition = new int[trueMaxTran];
     	for(int i = 0; i<transition.length;i++) {
     		transition[i] = i;
     	}                                               //变迁
-    	int[] marking = new int[iniMarking.size()];
+    	marking = new int[iniMarking.size()];
     	for(int i = 0; i<iniMarking.size();i++) {
     		marking[i] = iniMarking.get(i); 
     	}                                               //初始标识
 
-    	//4.清空已存在基础模型数据
-		if(baseData != null) {
-			clearBaseData();
-            BaseData.rootState = new StateNode(PetriModel.ininmarking.getMarking(), 1, 1);
-		}
+		System.out.println(Arrays.toString(marking));
 
-    	//初始化变量
+		//4.初始化变量
     	new PetriModel(new Matrix(preMatrix, "preMatrix"), 
     			new Matrix(posMatrix, "posMatrix"), 
     			new Transition(transition), new Marking(marking));
+		System.out.println(Arrays.deepToString(preMatrix));
+		System.out.println(Arrays.deepToString(posMatrix));
+		System.out.println(Arrays.toString(transition));
+
+		//5.清空已存在基础模型数据
+		if(BaseData.rootState != null) {
+			clearBaseData();
+			BaseData.rootState = new StateNode(PetriModel.ininmarking.getMarking(), 1, 1);
+		}
+		System.out.println(BaseData.rootState);
 	}
 
 	/**

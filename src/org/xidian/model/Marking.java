@@ -9,14 +9,14 @@ import java.util.Arrays;
  */
 public class Marking {
 	
-	public int[] marking;
-	
+	public static int[] marking;
+
 	public Marking(int n) {
 		marking = new int[n];
 	}
 	
 	public Marking(int[] marking) {
-		this.marking = marking;
+		Marking.marking = marking;
 	}
 	
 	public int[] getMarking() {
@@ -34,15 +34,15 @@ public class Marking {
 
 	@Override
 	public String toString() {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		for(int i = 0; i < marking.length; i++) {
 			if(i != marking.length - 1) {
-				result += (marking[i]+",");
+				result.append(marking[i]).append(",");
 			} else {
-				result += marking[i];
+				result.append(marking[i]);
 			}
 		}
-		return result;
+		return result.toString();
 	}
 
 }

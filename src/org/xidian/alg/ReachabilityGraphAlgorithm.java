@@ -22,6 +22,7 @@ import org.xidian.model.Matrix;
 import org.xidian.model.PetriModel;
 import org.xidian.model.StateNode;
 import org.xidian.model.Transition;
+import org.xidian.utils.LoadModelUtil;
 import org.xidian.utils.PrintUtil;
 
 /**
@@ -339,7 +340,7 @@ public class ReachabilityGraphAlgorithm extends BaseData {
         for (int i = 0; i < result.length; i++) {
             result[i] = true;
         }
-		for (int i = 0; i < PetriModel.transCount; i++) {
+        for (int i = 0; i < PetriModel.transCount; i++) {
             for (int j = 0; j < PetriModel.placesCount; j++) {
                 if ((currentState.getState()[j]
                         < PetriModel.posMatrix.getValue(j, i))) {

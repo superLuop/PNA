@@ -37,11 +37,11 @@ public class LocalGraphParametersDialog extends JFrame{
 		JButton ensure = new JButton(UIContants.CONFIRM);
 		JButton cancel = new JButton(UIContants.CANCEL);
 		//设置中英文切换
-		if (UIContants.IS_ENGLISH == 1){
+		if (UIContants.IS_CHINESE == 0){
 			//设置控件大小和位置
 			originalStateLabel.setBounds(50, 25, 90, 35);
 			pathLabel.setBounds(50, 80, 90, 35);
-			originalState.setBounds(150, 25, 190, 35);
+			originalState.setBounds(180, 25, 190, 35);
 			path.setBounds(150, 80, 190, 35);
 			ensure.setBounds(95, 225, 90, 40);
 			cancel.setBounds(205, 225, 90, 40);			

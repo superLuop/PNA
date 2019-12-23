@@ -6,9 +6,9 @@ package org.xidian.ui;
 public class UIContants {
 	
 	/**
-	 * 1:英文，0：中文
+	 * 1:中文，0：英文
 	 */
-	public final static int IS_ENGLISH = 1;
+	public final static int IS_CHINESE = 1;
 	
 	/**
 	 * 软件名称 
@@ -279,7 +279,7 @@ public class UIContants {
 	/**
 	 * 选择
 	 */
-	public final static String UI_CHOOSE = "select";
+	public final static String UI_CHOOSE = "select file";
 	/**
 	 * 文件另存为
 	 */

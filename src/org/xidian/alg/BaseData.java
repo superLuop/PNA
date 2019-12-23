@@ -3,7 +3,6 @@ package org.xidian.alg;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-//import java.util.TreeSet;
 
 import org.jgrapht.DirectedGraph;
 import org.xidian.model.GraphModel;
