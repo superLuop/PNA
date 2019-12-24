@@ -1,14 +1,8 @@
 package org.xidian.alg;
 
-import java.util.ArrayList;
+import java.util.*;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-
+import org.xidian.model.Marking;
 import org.xidian.model.PetriModel;
 import org.xidian.model.StateNode;
 import org.xidian.ui.LocalGraphParametersListener;
@@ -61,8 +55,12 @@ public class UnControlStepPredict {
 
         //得到不可控变迁
         ifcontrollable = LoadModelUtil.ifcontrollable;
+        System.out.println(ifcontrollable);
 
-        String begin = PetriModel.ininmarking.toString();
+        String initialMarking = BaseData.rootState.toString();
+        String begin = initialMarking.replace(" ",",");
+        begin = begin.substring(0, begin.length() - 1);
+//        System.out.println(begin);
 
 
         int optimalStep = CalculateOptimalStep(rga, begin, stepsize);
@@ -76,7 +74,7 @@ public class UnControlStepPredict {
 
         while (true) {
 //			System.out.println(middle);
-            int BooleanResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(), PetriModel.ininmarking.toString(), middle);
+            int BooleanResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(), begin, middle);
             if (BooleanResult == -1) {
                 a = middle;
                 middle = (a + b) / 2;//14
@@ -86,7 +84,7 @@ public class UnControlStepPredict {
             }
 
             if (middle % 2 != 0) {
-                int BResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(), PetriModel.ininmarking.toString(), middle);
+                int BResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(), begin, middle);
 
                 if (BResult == -1) {
                     sb.append("最接近最优步长的步长但是不可行：" + middle + "\n");

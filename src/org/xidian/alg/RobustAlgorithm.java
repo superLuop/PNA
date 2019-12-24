@@ -76,8 +76,8 @@ public class RobustAlgorithm extends BaseData {
             String deadState1 = PrintUtil.printList(deadStates);
             String[] deadState2 = deadState1.trim().split(" ");
             deadStates1 = new LinkedList<Integer>();
-            for (int d = 0; d < deadState2.length; d++) {
-                deadStates1.add(Integer.parseInt(deadState2[d].trim()));
+            for (String s : deadState2) {
+                deadStates1.add(Integer.parseInt(s.trim()));
             }
 
             //状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
@@ -86,8 +86,7 @@ public class RobustAlgorithm extends BaseData {
             int totalsize = adj.size() + deadState2.length;
             StateShift = new int[totalsize + 1][totalsize + 1];
 
-            for (int i = 0; i < adj.size(); i++) {
-                List<Integer> list = adj.get(i);
+            for (List<Integer> list : adj) {
                 if (!list.isEmpty()) {
                     for (int k = 0; k < list.size(); k = k + 3) {
                         addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
@@ -103,11 +102,16 @@ public class RobustAlgorithm extends BaseData {
             //临界状态
             List<Integer> criticalState1 = UnControlAndUnObserveAlgorithm.criticalState;
             criticalState = new LinkedList<Integer>();
-            for (int j = 0; j < criticalState1.size(); j++) {
-                criticalState.add(criticalState1.get(j));
+            criticalState.addAll(criticalState1);
+
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstate; i++) {
+                notBadState.add(i);
             }
+            notBadState.removeAll(badAnddeadStates);
             for (int n : badAnddeadStates) {
-                for (int m = 0; m < StateShift.length; m++) {
+                for (int m : notBadState) {
                     if (StateShift[m][n] > 0 && badAnddeadStates.contains(n) && !badAnddeadStates.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
                     }
@@ -137,10 +141,15 @@ public class RobustAlgorithm extends BaseData {
             }
 
             //所有状态数
-            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
             stateResult.append("\n\nTotal number of states：" + totalstate);
 
-            //List<Integer> states = new ArrayList<>();
+            //输出最大许可行为
+            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            for (Integer maxPermissive : notBadState) {
+                stateResult.append(maxPermissive + " ");
+            }
+
             //输出所有好状态
             stateResult.append("\n\nThe count of good states：" + (totalstate - badAnddeadStates.size() - criticalState.size()) + "\n");
             stateResult.append("The good states are：");
@@ -182,8 +191,8 @@ public class RobustAlgorithm extends BaseData {
             //输出所有死锁状态
             stateResult.append("\n\nThe count of deadlock states：" + deadStates1.size());
             stateResult.append("\nThe deadlock states are：");
-            for (int t = 0; t < deadStates1.size(); t++) {
-                stateResult.append(deadStates1.get(t) + " ");
+            for (Integer integer : deadStates1) {
+                stateResult.append(integer + " ");
             }
 
             //输出稳健步长
@@ -195,8 +204,8 @@ public class RobustAlgorithm extends BaseData {
             //原来不含有坏死状态，即原网无死锁
             stateResult.append("\nThe original Petri net has no deadlock,but due to the existence of unreliable resources:");
             up = LoadModelUtil.up;
-            for (int i = 0; i < up.size(); i++) {
-                stateResult.append("P" + up.get(i) + " ");
+            for (Integer integer : up) {
+                stateResult.append("P").append(integer).append(" ");
             }
             stateResult.append("\nThe system is not robust,the details are as follows:");
 
@@ -212,8 +221,7 @@ public class RobustAlgorithm extends BaseData {
             int totalsize = adj.size();
             StateShift = new int[totalsize + 1][totalsize + 1];
 
-            for (int i = 0; i < adj.size(); i++) {
-                List<Integer> list = adj.get(i);
+            for (List<Integer> list : adj) {
                 if (!list.isEmpty()) {
                     for (int k = 0; k < list.size(); k = k + 3) {
                         addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
@@ -222,9 +230,16 @@ public class RobustAlgorithm extends BaseData {
             }
 
             //临界状态
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstate; i++) {
+                notBadState.add(i);
+            }
+            notBadState.removeAll(badAnddeadStates);
+
             criticalState = new LinkedList<Integer>();
             for (int n : badAnddeadStates) {
-                for (int m = 0; m < StateShift.length; m++) {
+                for (int m : notBadState) {
                     if (StateShift[m][n] > 0 && badAnddeadStates.contains(n) && !badAnddeadStates.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
                     }
@@ -246,10 +261,15 @@ public class RobustAlgorithm extends BaseData {
             }
 
             //所有状态数
-            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
             stateResult.append("\n\nTotal number of states：" + totalstate);
 
-            //List<Integer> states = new ArrayList<>();
+            //输出最大许可行为
+            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            for (Integer maxPermissive : notBadState) {
+                stateResult.append(maxPermissive + " ");
+            }
+
             //输出所有好状态
             stateResult.append("\n\nThe count of good states：" + (totalstate - badAnddeadStates.size() - criticalState.size()) + "\n");
             stateResult.append("The good states are：");

@@ -33,14 +33,7 @@ public class UnControlAndUnObserveAlgorithm {
         stateResult = new StringBuffer();
         unObservableTra = new ArrayList<Integer>();
         unControllableTra = new ArrayList<Integer>();
-        try {
-            rg = new ReachabilityGraphAlgorithm();
-            rg.createReachabilityGraph(null, 0);
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
         UnobservableReachability.check();
-        UnControllableReachabilityGraphAlgorithm.test();
 //        StepAlgorithm.analyse();
 
         //状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
@@ -53,18 +46,18 @@ public class UnControlAndUnObserveAlgorithm {
         String deadState1 = PrintUtil.printList(deadStates);
         String[] deadState = deadState1.trim().split(" ");
 
-        //变迁是否可观
-        ifobservable = LoadModelUtil.ifobservable;
-        int size = ifobservable.size() + 1;
+        //变迁是否可控
+        ifcontrollable = LoadModelUtil.ifcontrollable;
+        int size = ifcontrollable.size() + 1;
         for (int h = 1; h < size; h++) {
-            if ("N".equals(ifobservable.get(h))) {
-                unObservableTra.add(h);
+            if ("N".equals(ifcontrollable.get(h))) {
+                unControllableTra.add(h);
             }
         }
 
 
-        //仅含不可控变迁时的坏状态和死锁状态
-        badAnddeadState = UnControllableReachabilityGraphAlgorithm.badAnddeadState;
+        //仅含不可观变迁时的坏死状态
+        badAnddeadState = UnobservableReachability.badAnddeadState;
 //     	System.out.println(badAnddeadState);
         if (!badAnddeadState.isEmpty() && (badAnddeadState != null)) {
 
@@ -80,16 +73,18 @@ public class UnControlAndUnObserveAlgorithm {
                 }
             }
 
-            //把仅含不可控变迁时的坏状态和死锁状态进行排队
+            //把仅含不可观变迁时的坏状态和死锁状态进行排队
             que = new LinkedList<Integer>();
             for (int s : badAnddeadState) {
                 que.add(s);
             }
+            //含不可观变迁时的临界状态
+            criticalState = UnobservableReachability.criticalState;
             while (!que.isEmpty()) {
                 int head = que.poll();
-                for (int i = 1; i < StateShift.length; i++) {
-                    for (int j = 0; j < unObservableTra.size(); j++) {
-                        if (StateShift[i][head] == unObservableTra.get(j) && !badAnddeadState.contains(i) && badAnddeadState.contains(head)) {
+                for (int i : criticalState) {
+                    for (int j = 0; j < unControllableTra.size(); j++) {
+                        if (StateShift[i][head] == unControllableTra.get(j) && !badAnddeadState.contains(i) && badAnddeadState.contains(head)) {
                             que.add(i);
                             badAnddeadState.add(i);
                         }
@@ -97,19 +92,18 @@ public class UnControlAndUnObserveAlgorithm {
                 }
             }
 
-            //stateList = new LinkedList<Integer>();  //存放状态
-            Set<Integer> set = new HashSet<Integer>();
-            for (int s = 0; s < StateShift.length; s++) {
-                set.add(s);
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstate; i++) {
+                notBadState.add(i);
             }
+            notBadState.removeAll(badAnddeadState);
+
             for (int t = 0; t < badAnddeadState.size(); t++) {
-                for (int s = 0; s < StateShift.length; s++) {
+                for (int s : notBadState) {
                     if (StateShift[s][badAnddeadState.get(t)] > 0 && !badAnddeadState.contains(s)) {
-                        //stateList.addFirst(s);
-                        //while(!stateList.isEmpty()){
-                        //	int index = stateList.getFirst();
                         Set<Integer> ss = new HashSet<>();
-                        for (int g : set) {
+                        for (int g : notBadState) {
                             if (StateShift[s][g] > 0) {
                                 ss.add(g);
                             }
@@ -117,15 +111,14 @@ public class UnControlAndUnObserveAlgorithm {
                         if (badAnddeadState.containsAll(ss)) {
                             badAnddeadState.add(s);
                         }
-                        //	}
                     }
                 }
             }
 
-            //仅含不可控变迁时的临界状态
-            criticalState = UnControllableReachabilityGraphAlgorithm.criticalState;
+
+//            criticalState = UnobservableReachability.criticalState;
             for (int n : badAnddeadState) {
-                for (int m = 0; m < StateShift.length; m++) {
+                for (int m : notBadState) {
                     if (StateShift[m][n] > 0 && badAnddeadState.contains(n) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
                     }
@@ -147,10 +140,17 @@ public class UnControlAndUnObserveAlgorithm {
 
             stateResult.append("The analysis of containing uncontrollable and unobservable transitions is as follows:\n");
             //所有状态数
-            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
             stateResult.append("Total number of states：" + totalstate + "\n\n\n");
+
+            //输出最大许可行为
+            stateResult.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            for (Integer maxPermissive : notBadState) {
+                stateResult.append(maxPermissive + " ");
+            }
+
             //输出好状态
-            stateResult.append("The count of good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
+            stateResult.append("\n\nThe count of good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
             stateResult.append("The good states are：");
             for (int i = 1; i <= totalstate; i++) {
                 if (!criticalState.contains(i) && !badAnddeadState.contains(i)) {

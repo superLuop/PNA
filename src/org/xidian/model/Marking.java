@@ -8,17 +8,17 @@ import java.util.Arrays;
  * @version 1.0 2016-5-16
  */
 public class Marking {
-	
-	public static int[] marking;
+
+	public int[] marking;
 
 	public Marking(int n) {
 		marking = new int[n];
 	}
-	
+
 	public Marking(int[] marking) {
-		Marking.marking = marking;
+		this.marking = marking;
 	}
-	
+
 	public int[] getMarking() {
 		return marking;
 	}

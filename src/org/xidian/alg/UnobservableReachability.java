@@ -35,12 +35,6 @@ public class UnobservableReachability {
         sb = new StringBuffer();
         stateResult = new StringBuffer();
         unObservableTra = new ArrayList<Integer>();
-        try {
-            rg = new ReachabilityGraphAlgorithm();
-            rg.createReachabilityGraph(null, 0);
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
         StepAlgorithm.analyse();
 
         //死锁状态
@@ -68,17 +62,15 @@ public class UnobservableReachability {
         String[] strs = badAnddeadState1.toString().split(" ");
         badAnddeadState = new LinkedList<Integer>();
         if (!"".equals(badAnddeadState1.toString()) && (badAnddeadState1.toString() != null)) {
-            for (int g = 0; g < strs.length; g++) {
-
-                badAnddeadState.add(Integer.parseInt(strs[g].trim()));
+            for (String str : strs) {
+                badAnddeadState.add(Integer.parseInt(str.trim()));
             }
 
             int totalsize = adj.size() + deadState.length;
 
             StateShift = new int[totalsize + 1][totalsize + 1];
 
-            for (int i = 0; i < adj.size(); i++) {
-                List<Integer> list = adj.get(i);
+            for (List<Integer> list : adj) {
                 if (!list.isEmpty()) {
                     for (int k = 0; k < list.size(); k = k + 3) {
                         addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
@@ -88,18 +80,23 @@ public class UnobservableReachability {
 
             //把原来的坏状态和死锁状态进行排队
             que = new LinkedList<Integer>();
-            for (int s : badAnddeadState) {
-                que.add(s);
-            }
+            que.addAll(badAnddeadState);
 
+            //原来的临界状态
+            String criticalState1 = StepAlgorithm.Criticals;
+            String[] criticalState2 = criticalState1.trim().split(" ");
+            criticalState = new LinkedList<Integer>();
+            for (String item : criticalState2) {
+                criticalState.add(Integer.parseInt(item.trim()));
+            }
 
             while (!que.isEmpty()) {
                 int head = que.poll();
-                for (int m = 1; m < StateShift.length; m++) {
+                for (int c : criticalState) {
                     for (int n = 0; n < unObservableTra.size(); n++) {
-                        if (StateShift[m][head] == unObservableTra.get(n) && !badAnddeadState.contains(m) && badAnddeadState.contains(head)) {
-                            que.add(m);
-                            badAnddeadState.add(m);
+                        if (StateShift[c][head] == unObservableTra.get(n) && !badAnddeadState.contains(c) && badAnddeadState.contains(head)) {
+                            que.add(c);
+                            badAnddeadState.add(c);
                         }
                     }
                 }
@@ -108,19 +105,21 @@ public class UnobservableReachability {
 
             //   UnobservableReachability.BFS(StateShift.length);
 
-            //stateList = new LinkedList<Integer>();  //存放状态
-            Set<Integer> set = new HashSet<Integer>();
-            for (int s = 0; s < StateShift.length; s++) {
-                set.add(s);
+
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstate; i++) {
+                notBadState.add(i);
             }
-//		 Iterator<Integer> iter = set.iterator();
-            for (int t = 0; t < badAnddeadState.size(); t++) {
-                for (int s = 0; s < StateShift.length; s++) {
-                    if (StateShift[s][badAnddeadState.get(t)] > 0 && !badAnddeadState.contains(s)) {
+            notBadState.removeAll(badAnddeadState);
+
+            for (int b : badAnddeadState) {
+                for (int s : notBadState) {
+                    if (StateShift[s][b] > 0 && !badAnddeadState.contains(s)) {
                         //while(!stateList.isEmpty()){
                         //	int index = stateList.getFirst();
                         Set<Integer> ss = new HashSet<>();
-                        for (int g : set) {
+                        for (int g : notBadState) {
                             if (StateShift[s][g] > 0) {
                                 ss.add(g);
                             }
@@ -141,16 +140,18 @@ public class UnobservableReachability {
 
 
             //临界状态
-            String criticalState1 = StepAlgorithm.Criticals;
+            /*String criticalState1 = StepAlgorithm.Criticals;
             String[] criticalState2 = criticalState1.trim().split(" ");
             criticalState = new LinkedList<Integer>();
             for (int j = 0; j < criticalState2.length; j++) {
                 criticalState.add(Integer.parseInt(criticalState2[j].trim()));
-            }
+            }*/
 
             //Iterator<Integer> iter = stateList.iterator();
+            notBadState.removeAll(badAnddeadState);
+
             for (int n : badAnddeadState) {
-                for (int m = 0; m < StateShift.length; m++) {
+                for (int m : notBadState) {
                     if (StateShift[m][n] > 0 && badAnddeadState.contains(n) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
                     }
@@ -174,10 +175,17 @@ public class UnobservableReachability {
 
             stateResult.append("The analysis of containing unobservable transitions is as follows:\n");
             //所有状态数
-            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
             stateResult.append("Total number of states：" + totalstate + "\n\n\n");
+
+            //输出最大许可行为
+            stateResult.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            for (Integer maxPermissive : notBadState) {
+                stateResult.append(maxPermissive + " ");
+            }
+
             //输出好状态
-            stateResult.append("Good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
+            stateResult.append("\n\nGood states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
             stateResult.append("The good states are：");
             for (int i = 1; i <= totalstate; i++) {
                 if (!criticalState.contains(i) && !badAnddeadState.contains(i)) {

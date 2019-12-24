@@ -48,8 +48,9 @@ public class ControlStepPredict {
 		
 		ReachabilityGraphAlgorithm rga = new ReachabilityGraphAlgorithm();
 
-		String begin = PetriModel.ininmarking.toString();
-		
+		String initialMarking = BaseData.rootState.toString();
+		String begin = initialMarking.replace(" ",",");
+		begin = begin.substring(0, begin.length() - 1);
 
 		
 		int optimalStep = CalculateOptimalStep(rga, begin,stepsize);
@@ -64,7 +65,7 @@ public class ControlStepPredict {
 		
 		while(true){
 //			System.out.println(middle);
-			int BooleanResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(),PetriModel.ininmarking.toString(),middle);
+			int BooleanResult = CalculateOptimalStep2(new ReachabilityGraphAlgorithm(),begin,middle);
 			if(BooleanResult==-1){
 				a = middle;
 				middle = (a+b)/2;//14
@@ -74,7 +75,7 @@ public class ControlStepPredict {
 			}
 		    
 			if(middle%2!=0){
-				CalculateOptimalStep2(new ReachabilityGraphAlgorithm(),PetriModel.ininmarking.toString(),middle);
+				CalculateOptimalStep2(new ReachabilityGraphAlgorithm(),begin,middle);
 				
 			/*	if(BResult==-1){
 //					System.out.println("哈哈："+middle);

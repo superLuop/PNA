@@ -1,13 +1,7 @@
 package org.xidian.alg;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 //import org.xidian.model.PetriModel;
 //import org.xidian.model.StateNode;
@@ -16,9 +10,8 @@ import org.xidian.utils.LoadModelUtil;
 import org.xidian.utils.PrintUtil;
 
 /**
- * wss
- *
- * @author Administrator
+ * @Description 含有不可控变迁的状态分析算法
+ * @author wss/LP
  */
 public class UnControllableReachabilityGraphAlgorithm {
 
@@ -76,7 +69,7 @@ public class UnControllableReachabilityGraphAlgorithm {
         //坏状态和死锁状态
         StringBuffer badAnddeadState1 = StepAlgorithm.badAnddeadState2;
         String[] strs = badAnddeadState1.toString().split(" ");
-        badAnddeadState = new ArrayList<Integer>();
+        badAnddeadState = new LinkedList<Integer>();
 
         if (!"".equals(badAnddeadState1.toString()) && (badAnddeadState1.toString() != null)) {
             for (int g = 0; g < strs.length; g++) {
@@ -182,9 +175,31 @@ public class UnControllableReachabilityGraphAlgorithm {
 
             }
 
+            //逐层向上搜索坏状态
+            int totalstatecount = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstatecount; i++) {
+                notBadState.add(i);
+            }
+            notBadState.removeAll(badAnddeadState);
+            for (int b = 0; b < badAnddeadState.size(); b++) {
+                for (int s : notBadState) {
+                    if (adjedge[s][badAnddeadState.get(b)] > 0 && !badAnddeadState.contains(s)) {
+                        Set<Integer> ss = new HashSet<>();
+                        for (int g : notBadState) {
+                            if (adjedge[s][g] > 0) {
+                                ss.add(g);
+                            }
+                        }
+                        if (badAnddeadState.containsAll(ss)) {
+                            badAnddeadState.add(s);
+                        }
+                    }
+                }
+            }
 
-            //System.out.println("+++++++++"+badAnddeadState);
-            //System.out.println("+++++++++"+badAnddeadState.size());
+//            System.out.println("+++++++++"+badAnddeadState);
+//            System.out.println("+++++++++"+badAnddeadState.size());
 
             Set<String> set2 = new HashSet<String>();
             for (int g = 0; g < badAnddeadState.size(); g++) {
@@ -193,8 +208,6 @@ public class UnControllableReachabilityGraphAlgorithm {
                         set2.add(u + "=t" + adjedge[u][badAnddeadState.get(g)]);
                     }
                 }
-
-
             }
 
 //		System.out.println(set2);
@@ -219,20 +232,13 @@ public class UnControllableReachabilityGraphAlgorithm {
                 }
                 sb3.append("-");
             }
-
-
-            //	Map<Integer, StateNode> result = rg.resu;
-
-
             String[] results = sb3.toString().split("-");
 //			System.out.println(sb3);
             //总的状态数
-            int totalstatecount = ReachabilityGraphAlgorithm.statesAmout;
+//            int totalstatecount = ReachabilityGraphAlgorithm.statesAmout;
             sbResult.append("Total number of states：" + totalstatecount + "\n\n\n");
 
 
-            //System.out.println(PetriModel.ininmarking.toString());
-            //sbResult.append("临界状态:");
             criticalState.clear();
             if (!badAnddeadState.contains(1)) {
                 for (String s : results) {
@@ -250,8 +256,25 @@ public class UnControllableReachabilityGraphAlgorithm {
                 sbResult.append("Sorry, there's no critical states");
             }
 
+            //临界状态下需要控制的变迁
+            Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+            for (int c : criticalState) {
+                map.put(c, new ArrayList<Integer>());
+                for (int m : badAnddeadState) {
+                    if (adjedge[c][m] > 0) {
+                        map.get(c).add(adjedge[c][m]);
+//     			stateResult.append(c+"-->The transition that needs to be controlled in this state is : "+"t"+StateShift[c][m]+"\n");
+                    }
+                }
+            }
 
-            sbResult.append("Good states：" + (totalstatecount - criticalState.size() - badAnddeadState.size()) + "\n");
+            //输出最大许可行为
+            sbResult.append("The maximum permissive behaviors of the net are: (total ").append(notBadState.size()).append(" states)\n");
+            for (Integer maxPermissive : notBadState) {
+                sbResult.append(maxPermissive).append(" ");
+            }
+
+            sbResult.append("\n\nGood states：").append(totalstatecount - criticalState.size() - badAnddeadState.size()).append("\n");
             sbResult.append("The good states are：");
 
             //得到好的状态
@@ -263,17 +286,13 @@ public class UnControllableReachabilityGraphAlgorithm {
 
             sbResult.append("\n\nCritical States：" + criticalState.size() + "\n");
             sbResult.append("The critical States are：\n");
-//		for(int m = 0;m<criticalState.size();m++){
-            Object[] array1 = set2.toArray();
-            for (int p = 0; p < array1.length; p++) {
-                if (array[p] != null) {
-                    String ss = String.valueOf(array1[p]);
-                    String[] sp = ss.split("=");
-                    sbResult.append(sp[0] + "-->The transition that needs to be controlled in this state is： " + sp[1] + "\n");
-                }
+            Set<Integer> keySet = map.keySet();
+            for (Integer key : keySet) {
+                sbResult.append(key + "-->The transition that needs to be controlled in this state is : ");
+                for (int value : map.get(key))
+                    sbResult.append("t" + value + "  ");
+                sbResult.append("\n");
             }
-
-//		}
 
 
             //badAnddeadState集合使用完成后，最后输出坏死状态

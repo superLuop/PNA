@@ -21,7 +21,7 @@ public class LoadModelUtil {
 	public static Map<Integer,String> ifcontrollable = null;
 	public static Map<Integer,String> ifobservable = null;
 	public static Map<Integer,String> ifreliable = null;
-	
+
 	//资源是否可靠
  	public static LinkedList<Integer> up = null;  //up用于存放不可靠资源库所
 	public static LinkedList<Integer> rp = null;  //rp用于存放资源库所
@@ -31,10 +31,10 @@ public class LoadModelUtil {
 	public static int[][] preMatrix;	//前置矩阵
 	public static int[][] posMatrix;	//后置矩阵
 	public static List<Integer> iniMarking;  //初始marking
-	
+
 	static int defaultTranCount = 1000; //默认最大变迁数量为1000
 	public static int trueMaxTran = 0; //实际最大的变迁编号
-	
+
 
 	public static Set<Integer> badTrans = null;
 	public static Map<Integer, List<Integer>> resourceWeightMap = null;
@@ -54,23 +54,16 @@ public class LoadModelUtil {
 
 //		System.out.println("文件名："+resource);
 
-		//wss
 		String[] split = resource.split("end");
-		
-		
+
+
 		Pattern pattern = Pattern.compile("\r|\n");       //正则表达式，以换行间隔的模式
     	String[] strs = pattern.split(split[0]);
-    	
-    	
-    	//wss
-   /* 	System.out.println("============");
-    	System.out.println(split[1].trim());
-    	System.out.println("===========");*/
-    	
+
     	Pattern pattern2 = Pattern.compile("\\s{1,}");    //正则表达式，以空格间隔的模式
-    	
+
     	String[] split1 = split[1].split("div");
-    	
+
     	String[] split2 = pattern.split(split1[0].trim());
     	String[] split3 = pattern.split(split1[1].trim());
 
@@ -101,7 +94,7 @@ public class LoadModelUtil {
 				ifreliable.put(Integer.parseInt(split5[0].trim()), split5[1].trim());
 			}
     	}
-    	
+
     	preMatrix = new int[strs.length-2][defaultTranCount];
     	posMatrix = new int[strs.length-2][defaultTranCount];
     	iniMarking = new LinkedList<Integer>();
@@ -119,8 +112,7 @@ public class LoadModelUtil {
 	 			rp.add(i);
 	 		}
     	}
-//	 	System.out.println(up);
-//	   	System.out.println(rp);
+
         //2.解析
 		Trans = new LinkedHashMap<String, List<Integer>>();
     	for(int i = 1; i < strs.length; i++) {
@@ -128,40 +120,40 @@ public class LoadModelUtil {
     		parseModelLine(strs[i]);
     	}
 
-    	//计算含有不可靠资源时的坏变迁
+    	//计算含有不可靠资源时的不可靠資源的輸出变迁
 		calculateBadTrans(strs);
 
 		//3.得到模型
-    	preMatrix = Matrix.copyMatrix(0, 0, strs.length-2, 
+    	preMatrix = Matrix.copyMatrix(0, 0, strs.length-2,
     			trueMaxTran, preMatrix);
-    	posMatrix = Matrix.copyMatrix(0, 0, strs.length-2, 
+    	posMatrix = Matrix.copyMatrix(0, 0, strs.length-2,
     			trueMaxTran, posMatrix);
 
     	transition = new int[trueMaxTran];
     	for(int i = 0; i<transition.length;i++) {
     		transition[i] = i;
     	}                                               //变迁
-    	marking = new int[iniMarking.size()];
+		marking = new int[iniMarking.size()];
     	for(int i = 0; i<iniMarking.size();i++) {
-    		marking[i] = iniMarking.get(i); 
+    		marking[i] = iniMarking.get(i);
     	}                                               //初始标识
 
-		System.out.println(Arrays.toString(marking));
+//		System.out.println(Arrays.toString(marking));
 
 		//4.初始化变量
-    	new PetriModel(new Matrix(preMatrix, "preMatrix"), 
-    			new Matrix(posMatrix, "posMatrix"), 
+    	new PetriModel(new Matrix(preMatrix, "preMatrix"),
+    			new Matrix(posMatrix, "posMatrix"),
     			new Transition(transition), new Marking(marking));
-		System.out.println(Arrays.deepToString(preMatrix));
-		System.out.println(Arrays.deepToString(posMatrix));
-		System.out.println(Arrays.toString(transition));
+//		System.out.println(Arrays.deepToString(preMatrix));
+//		System.out.println(Arrays.deepToString(posMatrix));
+//		System.out.println(Arrays.toString(transition));
 
 		//5.清空已存在基础模型数据
 		if(BaseData.rootState != null) {
 			clearBaseData();
 			BaseData.rootState = new StateNode(PetriModel.ininmarking.getMarking(), 1, 1);
 		}
-		System.out.println(BaseData.rootState);
+//		System.out.println(BaseData.rootState);
 	}
 
 	/**
@@ -171,7 +163,7 @@ public class LoadModelUtil {
 	public static void parseModelLine(String str){
 		if(str==""||str==null) return;
 		Trans.put(str, new ArrayList<Integer>());
-		String[] strArr = str.split(","); 
+		String[] strArr = str.split(",");
 		//前置矩阵
 		String preStr = strArr[0].replaceAll("\\s{1,}", " ").trim();
 		String[] preArr = preStr.split(" ");
@@ -179,7 +171,7 @@ public class LoadModelUtil {
 		for(int i = 2; i < preArr.length; i++) {
 			if(preArr[i] == null) {
 				continue;
-			} 
+			}
 			if(preArr[i].contains(":")) {
 				String[] tem = preArr[i].split(":");
 				if((Integer.parseInt(tem[0]))>trueMaxTran){
@@ -203,17 +195,17 @@ public class LoadModelUtil {
 		for(int i = 0; i < posArr.length; i++) {
 			if(posArr[i] == null) {
 				continue;
-			} 
+			}
 			if(posArr[i].contains(":")) {
 				String[] tem2 = posArr[i].split(":");
 				if((Integer.parseInt(tem2[0]))>trueMaxTran) trueMaxTran =
 						Integer.parseInt(tem2[0]);
 				Trans.get(str).add(Integer.parseInt(tem2[0]));
 				posMatrix[Integer.parseInt(preArr[0])-1]
-						[Integer.parseInt(tem2[0])-1] = Integer.parseInt(tem2[1]);	
-				
+						[Integer.parseInt(tem2[0])-1] = Integer.parseInt(tem2[1]);
+
 			}else{
-				if(Integer.parseInt(posArr[i])>trueMaxTran) trueMaxTran = 
+				if(Integer.parseInt(posArr[i])>trueMaxTran) trueMaxTran =
 						Integer.parseInt(posArr[i]);
 				Trans.get(str).add(Integer.parseInt(posArr[i]));
 				posMatrix[Integer.parseInt(preArr[0])-1]
@@ -222,7 +214,7 @@ public class LoadModelUtil {
 		}
 
 	}
-	
+
 	/**
 	 * 为了解决编号超过1位数情况
 	 * @param charArray
@@ -230,7 +222,7 @@ public class LoadModelUtil {
 	 */
 	public static String[] parseCharToStringArr(char[] charArray){
 		List<String> temList =  new LinkedList<String>();
-		
+
 		for(int i = 0; i < charArray.length;) {
 			if(i+1 > charArray.length-1) break;
 			//有连续数字情况
@@ -249,7 +241,7 @@ public class LoadModelUtil {
 		}
 		return (String[]) temList.toArray();
 	}
-	
+
 	public static void clearBaseData() {
 		BaseData.deadStates = null;
 		BaseData.graphModel = null;
@@ -351,7 +343,7 @@ public class LoadModelUtil {
 			}
 		}
 
-		System.out.println(badTrans);
+//		System.out.println(badTrans);
 //		for (Integer key : resourceWeightMap.keySet()) {
 //			System.out.println(key + ":" + resourceWeightMap.get(key));
 //		}
