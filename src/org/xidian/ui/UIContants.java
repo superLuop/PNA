@@ -279,7 +279,7 @@ public class UIContants {
 	/**
 	 * 选择
 	 */
-	public final static String UI_CHOOSE = "select file";
+	public final static String UI_CHOOSE = "select";
 	/**
 	 * 文件另存为
 	 */

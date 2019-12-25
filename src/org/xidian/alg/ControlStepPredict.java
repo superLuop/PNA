@@ -48,9 +48,11 @@ public class ControlStepPredict {
 		
 		ReachabilityGraphAlgorithm rga = new ReachabilityGraphAlgorithm();
 
-		String initialMarking = BaseData.rootState.toString();
-		String begin = initialMarking.replace(" ",",");
-		begin = begin.substring(0, begin.length() - 1);
+//		String initialMarking = BaseData.rootState.toString();
+//		String begin = initialMarking.replace(" ",",");
+//		begin = begin.substring(0, begin.length() - 1);
+		String begin = PetriModel.ininmarking.toString();
+//		System.out.println(begin);
 
 		
 		int optimalStep = CalculateOptimalStep(rga, begin,stepsize);

@@ -117,9 +117,9 @@ public class UnControlAndUnObserveAlgorithm {
 
 
 //            criticalState = UnobservableReachability.criticalState;
-            for (int n : badAnddeadState) {
+            for (int n = 0;n < badAnddeadState.size(); n++) {
                 for (int m : notBadState) {
-                    if (StateShift[m][n] > 0 && badAnddeadState.contains(n) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
+                    if (StateShift[m][badAnddeadState.get(n)] > 0 && badAnddeadState.contains(badAnddeadState.get(n)) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
                     }
                 }
@@ -128,11 +128,11 @@ public class UnControlAndUnObserveAlgorithm {
 
             //临界状态下需要控制的变迁
             Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
-            for (int c : criticalState) {
-                map.put(c, new ArrayList<Integer>());
+            for (int c = 0; c < criticalState.size(); c++) {
+                map.put(criticalState.get(c), new ArrayList<Integer>());
                 for (int m : badAnddeadState) {
-                    if (StateShift[c][m] > 0) {
-                        map.get(c).add(StateShift[c][m]);
+                    if (StateShift[criticalState.get(c)][m] > 0) {
+                        map.get(criticalState.get(c)).add(StateShift[criticalState.get(c)][m]);
 //     			stateResult.append(c+"-->The transition that needs to be controlled in this state is : "+"t"+StateShift[c][m]+"\n");
                     }
                 }
@@ -144,13 +144,15 @@ public class UnControlAndUnObserveAlgorithm {
             stateResult.append("Total number of states：" + totalstate + "\n\n\n");
 
             //输出最大许可行为
-            stateResult.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
-            for (Integer maxPermissive : notBadState) {
-                stateResult.append(maxPermissive + " ");
-            }
+//            stateResult.append("The maximum permissive behaviors of the net are: (total "+ (totalstate - badAnddeadState.size()) +" states)\n");
+//            for (int i = 1; i <= totalstate; i++) {
+//                if (!badAnddeadState.contains(i)) {
+//                    stateResult.append(i + " ");
+//                }
+//            }
 
             //输出好状态
-            stateResult.append("\n\nThe count of good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
+            stateResult.append("The count of good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
             stateResult.append("The good states are：");
             for (int i = 1; i <= totalstate; i++) {
                 if (!criticalState.contains(i) && !badAnddeadState.contains(i)) {

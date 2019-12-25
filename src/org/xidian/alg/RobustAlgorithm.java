@@ -355,8 +355,10 @@ public class RobustAlgorithm extends BaseData {
 //            step = robustPath(graphModel.getCostMatrix().getMatrix(), badTranSet);
 
         //3.删除故障相关变迁
-        for (int el : badTrans) {
-            Matrix.reviseValue(graphModel.getCostMatrix().getMatrix(), el, 0);
+        if (badTrans != null && badTrans.size() > 0){
+            for (int el : badTrans) {
+                Matrix.reviseValue(graphModel.getCostMatrix().getMatrix(), el, 0);
+            }
         }
 
         //4.不稳健的状态

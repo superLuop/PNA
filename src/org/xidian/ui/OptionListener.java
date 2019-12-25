@@ -19,7 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class OptionListener extends JFrame implements ActionListener {
 
     private JButton importFileButton, exportFileButton, initButton, declareRationButton, exitButton;
-    MainPanel mainPanel;
+    private MainPanel mainPanel;
     FileDialog fileDialog;
     JFileChooser jFileChooser;
 
@@ -29,7 +29,9 @@ public class OptionListener extends JFrame implements ActionListener {
         this.initButton = initButton;
         this.declareRationButton = declareRationButton;
         this.exitButton = exitButton;
+        mainPanel = MainPanel.getInstance();
     }
+
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
@@ -57,11 +59,14 @@ public class OptionListener extends JFrame implements ActionListener {
             fileDialog = new FileDialog(this, UIContants.UI_FILE_SAVE, FileDialog.SAVE);
             fileDialog.setVisible(true);
             Long startTime = FileUtil.getCurrentTime();
-            File file = new File(fileDialog.getDirectory(), fileDialog.getFile());
-            String string = mainPanel.getText();
-            //导出
-            FileUtil.write(file.getAbsolutePath() + ".txt", string, false);
-            JOptionPane.showMessageDialog(null, (UIContants.UI_EXPORT_SUCCESS + (System.currentTimeMillis() - startTime) + "ms"));
+            if (fileDialog.getFile() != null && fileDialog.getFile().length() > 0){
+                File file = new File(fileDialog.getDirectory(), fileDialog.getFile());
+                String string = mainPanel.getText();
+                //导出
+                FileUtil.write(file.getAbsolutePath() + ".txt", string, false);
+                JOptionPane.showMessageDialog(null, (UIContants.UI_EXPORT_SUCCESS + (System.currentTimeMillis() - startTime) + "ms"));
+            }
+
         } else if (initButton.equals(actionEvent.getSource())){
             int result = JOptionPane.showConfirmDialog(null, "Confirm init?",
                     "InitData",JOptionPane.YES_NO_OPTION);

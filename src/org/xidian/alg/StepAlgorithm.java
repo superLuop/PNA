@@ -1,12 +1,7 @@
 package org.xidian.alg;
 
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeSet;
+import java.util.*;
 
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.GraphPath;
@@ -93,11 +88,15 @@ public class StepAlgorithm extends BaseData{
 		Queue<Integer> stateQueue = new LinkedList<Integer>();  //状态队列
 		Map<Integer, Integer> depthMap = new HashMap<Integer, Integer>(); //保存反推步长
 		//下标0开始
-		if(ReachabilityGraphAlgorithm.deadlockStates !=null)
-		for(StateNode node : ReachabilityGraphAlgorithm.deadlockStates) {
-			stateQueue.add(node.getStateNo());
-			cdeadlockNodes.add(node.getStateNo());
-			depthMap.put(node.getStateNo(), 1);
+//		System.out.println(deadStates);
+//		System.out.println("-------------------------------------------");
+//		System.out.println(ReachabilityGraphAlgorithm.deadlockStates);
+		if(ReachabilityGraphAlgorithm.deadlockStates != null){
+			for(StateNode node : ReachabilityGraphAlgorithm.deadlockStates) {
+				stateQueue.add(node.getStateNo());
+				cdeadlockNodes.add(node.getStateNo());
+				depthMap.put(node.getStateNo(), 1);
+			}
 		}
 //		System.out.println(ReachabilityGraphAlgorithm.deadlockStates);
 		int currentNode =  -1;
@@ -123,18 +122,43 @@ public class StepAlgorithm extends BaseData{
 			}
 		}
 		//BaseData.badStates.addAll(deadlockNodes); //初始化坏状态
-		resultStr.append("Critical States count：" +criticalNodes.size()+"\n"+PrintUtil.printSet(criticalNodes) + "\n");
+		//死锁状态
+		deadState = PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates);
+		//坏死状态
+		badAnddeadState2.append(PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates)+PrintUtil.printSet(deadlockNodes));
+
+
+		int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+		List<Integer> notBadState = new LinkedList<Integer>();
+		for (int i = 1; i <= totalstate; i++) {
+			notBadState.add(i);
+		}
+		if (badAnddeadState2 != null && badAnddeadState2.length() > 0){
+			StringBuffer badAnddeadState1 = StepAlgorithm.badAnddeadState2;
+			String[] strs = badAnddeadState1.toString().split(" ");
+			List<Integer> badAnddeadState = new LinkedList<Integer>();
+			for (String str : strs) {
+				badAnddeadState.add(Integer.parseInt(str.trim()));
+			}
+			notBadState.removeAll(badAnddeadState);
+		}
+		//所有状态数
+		resultStr.append("Total number of states：" + totalstate + "\n\n");
+
+		//输出最大许可行为
+		resultStr.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+		for (Integer maxPermissive : notBadState) {
+			resultStr.append(maxPermissive + " ");
+		}
+
+		resultStr.append("\n\nCritical States count：" +criticalNodes.size()+"\n"+PrintUtil.printSet(criticalNodes) + "\n");
 	
 		Criticals = PrintUtil.printSet(criticalNodes);
 		
 		resultStr.append("Deadlock States count: " + ReachabilityGraphAlgorithm.deadlockStates.size()+"\n"+ PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates) + "\n");
 		resultStr.append("Bad States count：" +deadlockNodes.size()+"\n"+ PrintUtil.printSet(deadlockNodes));
 		resultStr.append("\n\nS(Critical)==>S(Bad)\n");
-		
-		//+
-		deadState = PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates);
-		badAnddeadState2.append(PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates)+PrintUtil.printSet(deadlockNodes));
-		
+
 		
 		//下面开始输出临界关系
 		List<Integer> tempDownNodes = null;

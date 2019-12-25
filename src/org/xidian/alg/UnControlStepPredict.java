@@ -55,12 +55,11 @@ public class UnControlStepPredict {
 
         //得到不可控变迁
         ifcontrollable = LoadModelUtil.ifcontrollable;
-        System.out.println(ifcontrollable);
 
-        String initialMarking = BaseData.rootState.toString();
-        String begin = initialMarking.replace(" ",",");
-        begin = begin.substring(0, begin.length() - 1);
-//        System.out.println(begin);
+//        String initialMarking = BaseData.rootState.toString();
+//        String begin = initialMarking.replace(" ",",");
+//        begin = begin.substring(0, begin.length() - 1);
+        String begin = PetriModel.ininmarking.toString();
 
 
         int optimalStep = CalculateOptimalStep(rga, begin, stepsize);

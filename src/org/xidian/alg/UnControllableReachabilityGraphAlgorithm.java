@@ -82,10 +82,11 @@ public class UnControllableReachabilityGraphAlgorithm {
             String criticalState1 = StepAlgorithm.Criticals;
             String[] criticalState2 = criticalState1.trim().split(" ");
             criticalState = new ArrayList<Integer>();
-            for (int j = 0; j < criticalState2.length; j++) {
-                criticalState.add(Integer.parseInt(criticalState2[j].trim()));
+            if (criticalState2 != null && criticalState2.length > 0){
+                for (int j = 0; j < criticalState2.length; j++) {
+                    criticalState.add(Integer.parseInt(criticalState2[j].trim()));
+                }
             }
-
 
             int totalsize = adj.size() + deadState.length;
             adjedge = new int[totalsize + 1][totalsize + 1];
@@ -269,12 +270,12 @@ public class UnControllableReachabilityGraphAlgorithm {
             }
 
             //输出最大许可行为
-            sbResult.append("The maximum permissive behaviors of the net are: (total ").append(notBadState.size()).append(" states)\n");
-            for (Integer maxPermissive : notBadState) {
-                sbResult.append(maxPermissive).append(" ");
-            }
+//            sbResult.append("The maximum permissive behaviors of the net are: (total ").append(notBadState.size()).append(" states)\n");
+//            for (Integer maxPermissive : notBadState) {
+//                sbResult.append(maxPermissive).append(" ");
+//            }
 
-            sbResult.append("\n\nGood states：").append(totalstatecount - criticalState.size() - badAnddeadState.size()).append("\n");
+            sbResult.append("Good states：").append(totalstatecount - criticalState.size() - badAnddeadState.size()).append("\n");
             sbResult.append("The good states are：");
 
             //得到好的状态

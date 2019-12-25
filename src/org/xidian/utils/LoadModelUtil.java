@@ -120,7 +120,7 @@ public class LoadModelUtil {
     		parseModelLine(strs[i]);
     	}
 
-    	//计算含有不可靠资源时的不可靠資源的輸出变迁
+    	//计算含有不可靠资源时的不可靠资源输出变迁
 		calculateBadTrans(strs);
 
 		//3.得到模型

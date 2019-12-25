@@ -113,9 +113,9 @@ public class UnobservableReachability {
             }
             notBadState.removeAll(badAnddeadState);
 
-            for (int b : badAnddeadState) {
+            for (int b = 0; b < badAnddeadState.size(); b++) {
                 for (int s : notBadState) {
-                    if (StateShift[s][b] > 0 && !badAnddeadState.contains(s)) {
+                    if (StateShift[s][badAnddeadState.get(b)] > 0 && !badAnddeadState.contains(s)) {
                         //while(!stateList.isEmpty()){
                         //	int index = stateList.getFirst();
                         Set<Integer> ss = new HashSet<>();
@@ -179,13 +179,13 @@ public class UnobservableReachability {
             stateResult.append("Total number of states：" + totalstate + "\n\n\n");
 
             //输出最大许可行为
-            stateResult.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
-            for (Integer maxPermissive : notBadState) {
-                stateResult.append(maxPermissive + " ");
-            }
+//            stateResult.append("The maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+//            for (Integer maxPermissive : notBadState) {
+//                stateResult.append(maxPermissive + " ");
+//            }
 
             //输出好状态
-            stateResult.append("\n\nGood states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
+            stateResult.append("Good states：" + (totalstate - criticalState.size() - badAnddeadState.size()) + "\n");
             stateResult.append("The good states are：");
             for (int i = 1; i <= totalstate; i++) {
                 if (!criticalState.contains(i) && !badAnddeadState.contains(i)) {
