@@ -1,11 +1,6 @@
 package org.xidian.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 矩阵相关操作
@@ -88,7 +83,7 @@ public class Matrix {
 	 */
 	public void setMatrix(int i, int j, int value) {
 		if(matrix != null) {
-			matrix[i][j] = value; 
+			matrix[i][j] = value;
 		}
 	}
 	
@@ -219,7 +214,7 @@ public class Matrix {
 		if(array == null || array.length <= 0) {
 			return null;
 		}
-		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> result = new LinkedList<Integer>();
 		for(int i = 0; i < array.length; i++) {
 			if(array[i] != 0) {
 				result.add(i + 1);

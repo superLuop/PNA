@@ -7,31 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1425fcb1-848e-4b3e-bad6-26ec4efd7619" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/PNA/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ControlStepPredict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ControlStepPredict.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/RobustAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlAndUnObserveAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlAndUnObserveAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlStepPredict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControlStepPredict.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImportAndExportFileListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/ImportAndExportFileListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/OptionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/UIContants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/UIContants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/utils/LoadModelUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/ControlStepPredict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/ControlStepPredict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Matrix.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControlStepPredict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControlStepPredict.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/OptionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/UIContants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/UIContants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Matrix.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,11 +60,12 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/org/xidian/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -200,7 +187,9 @@
       <workItem from="1576978946417" duration="15630000" />
       <workItem from="1577065415605" duration="27973000" />
       <workItem from="1577150632878" duration="29704000" />
-      <workItem from="1577243119694" duration="15960000" />
+      <workItem from="1577243119694" duration="17024000" />
+      <workItem from="1577324179717" duration="6672000" />
+      <workItem from="1577351382825" duration="914000" />
     </task>
     <task id="LOCAL-00001" summary="version1.0">
       <created>1574153924873</created>
@@ -279,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577198385476</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="v1.2">
+      <created>1577282226729</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1577282226729</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +285,8 @@
     <MESSAGE value="version1.0" />
     <MESSAGE value="update" />
     <MESSAGE value="v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
+    <MESSAGE value="v1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="177" key="#Inspections" timestamp="1577108185471">
@@ -312,34 +309,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="825" y="449" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576750071774" />
-    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576747303274">
+    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577333415961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576747303274" />
-    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1577198383246">
+    <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577333415961" />
+    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1577282224317">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577198383246" />
-    <state x="761" y="331" key="FileChooserDialogImpl" timestamp="1576749441169">
+    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577282224317" />
+    <state x="304" y="175" key="FileChooserDialogImpl" timestamp="1577351701558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="761" y="331" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576749441169" />
-    <state width="1876" height="235" key="GridCell.Tab.0.bottom" timestamp="1577277045438">
+    <state x="304" y="175" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577351701558" />
+    <state width="1876" height="188" key="GridCell.Tab.0.bottom" timestamp="1577331652888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="235" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577277045438" />
-    <state width="1876" height="235" key="GridCell.Tab.0.center" timestamp="1577277045438">
+    <state width="1876" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652888" />
+    <state width="1876" height="188" key="GridCell.Tab.0.center" timestamp="1577331652887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="235" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577277045438" />
-    <state width="1876" height="235" key="GridCell.Tab.0.left" timestamp="1577277045438">
+    <state width="1876" height="188" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
+    <state width="1876" height="188" key="GridCell.Tab.0.left" timestamp="1577331652887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="235" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577277045438" />
-    <state width="1876" height="235" key="GridCell.Tab.0.right" timestamp="1577277045438">
+    <state width="1876" height="188" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
+    <state width="1876" height="188" key="GridCell.Tab.0.right" timestamp="1577331652887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="235" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577277045438" />
+    <state width="1876" height="188" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
     <state x="621" y="274" key="NewModule_or_Project.wizard" timestamp="1576749471526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -348,18 +345,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577282162063" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1577198426562">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1577282662963">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577198426562" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577282662963" />
     <state x="792" y="283" key="extract.method.dialog" timestamp="1576567081748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="792" y="283" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576567081748" />
-    <state x="661" y="146" key="refactoring.ChangeSignatureDialog" timestamp="1577260622139">
+    <state x="661" y="146" key="refactoring.ChangeSignatureDialog" timestamp="1577333381141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="146" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577260622139" />
+    <state x="661" y="146" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577333381141" />
     <state x="694" y="263" width="672" height="678" key="search.everywhere.popup" timestamp="1576634511977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

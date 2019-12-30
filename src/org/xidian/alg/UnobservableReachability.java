@@ -14,7 +14,7 @@ import org.xidian.utils.PrintUtil;
  * @Description 含有不可观变迁的状态分析算法
  * @CreateDate [2018-6-28]
  */
-public class UnobservableReachability {
+public class UnobservableReachability{
     static int[][] StateShift;
     static List<Integer> badAnddeadState = null;
     static List<Integer> badState = null;
@@ -86,8 +86,10 @@ public class UnobservableReachability {
             String criticalState1 = StepAlgorithm.Criticals;
             String[] criticalState2 = criticalState1.trim().split(" ");
             criticalState = new LinkedList<Integer>();
-            for (String item : criticalState2) {
-                criticalState.add(Integer.parseInt(item.trim()));
+            if (criticalState2 != null && !"".equals(criticalState2)){
+                for (String item : criticalState2) {
+                    criticalState.add(Integer.parseInt(item.trim()));
+                }
             }
 
             while (!que.isEmpty()) {
@@ -287,16 +289,6 @@ public class UnobservableReachability {
             }
         }
 
-    }
-
-    public static void remove() {              //得到坏状态
-        String deadState1 = StepAlgorithm.deadState;
-        String[] deadState = deadState1.trim().split(" ");
-        LinkedList<Integer> list = new LinkedList<>();
-        for (int d = 0; d < deadState.length; d++) {
-            list.add(Integer.parseInt(deadState[d].trim()));
-        }
-        badAnddeadState.removeAll(list);
     }
 
 }

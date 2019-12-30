@@ -22,7 +22,7 @@ public class StepAlgorithm extends BaseData{
 	static int maxPath = 1;  //最优步长
 	public static StringBuffer badAnddeadState2 = null;
 	public static String Criticals;
-	public static String deadState;
+//	public static String deadState;
 	/**
 	 * 1.计算出起始节点到各个死锁节点的全部(或部分)路径
 	 * 2.计算出各个路径中的最短路径（路径长度）
@@ -123,7 +123,7 @@ public class StepAlgorithm extends BaseData{
 		}
 		//BaseData.badStates.addAll(deadlockNodes); //初始化坏状态
 		//死锁状态
-		deadState = PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates);
+		PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates);
 		//坏死状态
 		badAnddeadState2.append(PrintUtil.printList(ReachabilityGraphAlgorithm.deadlockStates)+PrintUtil.printSet(deadlockNodes));
 
