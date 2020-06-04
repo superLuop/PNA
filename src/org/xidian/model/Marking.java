@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
  * marking 类
- * @author HanChun
- * @version 1.0 2016-5-16
+ * @author luopeng
+ * @version 1.0 2018-6-16
  */
 public class Marking {
 

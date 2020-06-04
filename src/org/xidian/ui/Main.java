@@ -1,10 +1,9 @@
 package org.xidian.ui;
 
-import javax.swing.*;
 
 /**
  * PNA 入口
- * @author HanChun
+ * @author luopeng
  */
 public class Main{	
 	

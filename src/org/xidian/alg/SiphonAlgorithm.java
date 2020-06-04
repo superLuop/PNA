@@ -11,7 +11,7 @@ import org.xidian.temp.PNMatrix;
 /**
  * 信标分析
  *
- * @author HanChun
+ * @author luopeng
  * <p>
  * 未重构代码
  */

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 /**
  * 导入模型窗口
- * @author HanChun
+ * @author luopeng
  * 
  */
 public class PathUtil {

@@ -4,8 +4,8 @@ import java.util.*;
 
 /**
  * 矩阵相关操作
- * @author HanChun
- * @version 1.0 2016-5-16
+ * @author luopeng
+ * @version 1.0 2018-6-16
  */
 public class Matrix {
 	

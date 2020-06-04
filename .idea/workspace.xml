@@ -8,16 +8,36 @@
   <component name="ChangeListManager">
     <list default="true" id="1425fcb1-848e-4b3e-bad6-26ec4efd7619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/ReachabilityGraphAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/StepAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/alg/UnobservableReachability.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/model/Matrix.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/META-INF/PNA.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PNA/org/xidian/ui/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/BaseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/BaseData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/CyclePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/CyclePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/InequalityAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/InequalityAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/ReachabilityGraphAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/RobustAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/SiphonAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/SiphonAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/StepAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControlAndUnObserveAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnControllableReachabilityGraphAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/alg/UnobservableReachability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/CriticalNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/CriticalNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/GraphModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/GraphModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Marking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Marking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/PetriModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/PetriModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Stacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Stacks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/StateNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/StateNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/model/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/model/Transition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/ui/MenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/ui/MenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/LoadModelUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/PathUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/PathUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/xidian/utils/ValidateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/xidian/utils/ValidateUtil.java" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +45,22 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/xidian/ui/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+              <folding>
+                <element signature="e#162#163#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,6 +72,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/org/xidian/ui/MenuPanel.java" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -50,8 +93,59 @@
     <option name="jreName" value="12" />
     <option name="vmOptions" value="-DarchetypeCatalog=internal" />
   </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="459" />
+    <option name="y" value="23" />
+    <option name="width" value="1522" />
+    <option name="height" value="958" />
+  </component>
   <component name="ProjectId" id="1V3Q7tsNOeK1r6PDv7smCCqNWrh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PNA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PNA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PNA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PNA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PNA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PNA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="xidian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PNA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PNA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="xidian" type="462c0819:PsiDirectoryNode" />
+              <item name="alg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PNA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PNA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="xidian" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -71,7 +165,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -84,6 +178,18 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Java exercises\IDEA ex\PNA\src\imgs" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -190,6 +296,14 @@
       <workItem from="1577243119694" duration="17024000" />
       <workItem from="1577324179717" duration="6672000" />
       <workItem from="1577351382825" duration="914000" />
+      <workItem from="1577712087648" duration="382000" />
+      <workItem from="1578209217932" duration="2570000" />
+      <workItem from="1578278940531" duration="5465000" />
+      <workItem from="1578361156986" duration="1325000" />
+      <workItem from="1578386440860" duration="203000" />
+      <workItem from="1578449805223" duration="1087000" />
+      <workItem from="1578454564791" duration="648000" />
+      <workItem from="1591241900818" duration="304000" />
     </task>
     <task id="LOCAL-00001" summary="version1.0">
       <created>1574153924873</created>
@@ -275,20 +389,73 @@
       <option name="project" value="LOCAL" />
       <updated>1577282226729</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update">
+      <created>1577712308686</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577712308686</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2039000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="459" y="23" width="1522" height="958" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20861833" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18909091" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="BPMNPalette" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Database" order="9" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version1.0" />
-    <MESSAGE value="update" />
     <MESSAGE value="v1.1" />
     <MESSAGE value="v1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.2" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="177" key="#Custom_Plugin_Repositories" timestamp="1578386593303">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#Custom_Plugin_Repositories/0.0.1920.1040@0.0.1920.1040" timestamp="1578386593303" />
+    <state x="552" y="177" key="#HTTP_Proxy" timestamp="1578386517785">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="177" key="#HTTP_Proxy/0.0.1920.1040@0.0.1920.1040" timestamp="1578386517785" />
     <state x="552" y="177" key="#Inspections" timestamp="1577108185471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -301,10 +468,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1269" y="168" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1577071837073" />
-    <state x="711" y="359" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577254347279">
+    <state x="711" y="359" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577712407061">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="711" y="359" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577254347279" />
+    <state x="711" y="359" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577712407061" />
     <state x="825" y="449" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576750071774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -313,42 +480,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1087" y="228" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577333415961" />
-    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1577282224317">
+    <state x="560" y="109" key="CommitChangelistDialog2" timestamp="1577712306471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577282224317" />
-    <state x="304" y="175" key="FileChooserDialogImpl" timestamp="1577351701558">
+    <state x="560" y="109" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1577712306471" />
+    <state x="304" y="175" key="FileChooserDialogImpl" timestamp="1578386649867">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="304" y="175" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1577351701558" />
-    <state width="1876" height="188" key="GridCell.Tab.0.bottom" timestamp="1577331652888">
+    <state x="304" y="175" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578386649867" />
+    <state width="1876" height="164" key="GridCell.Tab.0.bottom" timestamp="1578381562995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="188" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652888" />
-    <state width="1876" height="188" key="GridCell.Tab.0.center" timestamp="1577331652887">
+    <state width="1876" height="164" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578381562995" />
+    <state width="1876" height="164" key="GridCell.Tab.0.center" timestamp="1578381562995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="188" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
-    <state width="1876" height="188" key="GridCell.Tab.0.left" timestamp="1577331652887">
+    <state width="1876" height="164" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578381562995" />
+    <state width="1876" height="164" key="GridCell.Tab.0.left" timestamp="1578381562995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="188" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
-    <state width="1876" height="188" key="GridCell.Tab.0.right" timestamp="1577331652887">
+    <state width="1876" height="164" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578381562995" />
+    <state width="1876" height="164" key="GridCell.Tab.0.right" timestamp="1578381562995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="188" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577331652887" />
+    <state width="1876" height="164" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578381562995" />
     <state x="621" y="274" key="NewModule_or_Project.wizard" timestamp="1576749471526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="621" y="274" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1576749471526" />
-    <state x="461" y="151" key="SettingsEditor" timestamp="1577282162063">
+    <state x="461" y="151" key="SettingsEditor" timestamp="1578386622975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577282162063" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1577282662963">
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578386622975" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1577712325940">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577282662963" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1577712325940" />
     <state x="792" y="283" key="extract.method.dialog" timestamp="1576567081748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -361,5 +528,24 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="694" y="263" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576634511977" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/org/xidian/ui/MenuPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/xidian/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding>
+            <element signature="e#162#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

@@ -10,8 +10,8 @@ import java.io.IOException;
 
 /**
  * 文件输入输出
- * @author HanChun
- * @version 2016-5-16
+ * @author luopeng
+ * @version 2018-6-16
  */
 public final class FileUtil {
     /**

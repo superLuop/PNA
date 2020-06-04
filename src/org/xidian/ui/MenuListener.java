@@ -10,7 +10,7 @@ import org.xidian.alg.*;
 
 /**
  * 菜单按钮监听类
- * @author HanChun wss LP
+ * @author luopeng
  */
 public class MenuListener implements ActionListener{
 	int i = 0;

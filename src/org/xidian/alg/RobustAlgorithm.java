@@ -11,7 +11,7 @@ import org.xidian.utils.PrintUtil;
 /**
  * @author PLuo;
  * @Description 含有不可靠资源的状态分析算法（鲁棒性分析）
- * @CreateDate [2018-7-31]
+ * @CreateDate [2019-7-31]
  */
 public class RobustAlgorithm extends BaseData {
     static int[][] StateShift;

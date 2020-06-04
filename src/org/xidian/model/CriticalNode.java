@@ -2,8 +2,8 @@ package org.xidian.model;
 
 /**
  * 状态分类
- * @author HanChun
- * @since 2016-6-6
+ * @author luopeng
+ * @since 2018-6-6
  * @version 1.0
  */
 public class CriticalNode {

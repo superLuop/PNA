@@ -2,8 +2,8 @@ package org.xidian.model;
 
 /**
  * petri reachability graph model转化为 graph model
- * @author HanChun
- * @since 2016-6-4
+ * @author luopeng
+ * @since 2018-6-4
  * @version 1.0
  */
 public class GraphModel {

@@ -2,8 +2,8 @@ package org.xidian.model;
 
 /**
  * 计算环路径的另一种数据表示方法
- * @author HanChun
- * @since 2016-6-4
+ * @author luopeng
+ * @since 2018-6-4
  * @version 1.0
  */
 public class Node {

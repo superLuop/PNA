@@ -20,8 +20,8 @@ import org.xidian.utils.PrintUtil;
 /**
  * 可达图（广义）数据模型
  *
- * @author HanChun
- * @version 2.0 2016-10-2 (1)自定义方式生成局部可达图;
+ * @author luopeng
+ * @version 2.0 2018-10-2 (1)自定义方式生成局部可达图;
  */
 public class ReachabilityGraphAlgorithm extends BaseData {
 

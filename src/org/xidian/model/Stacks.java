@@ -2,8 +2,8 @@ package org.xidian.model;
 
 /**
  * 图的邻接表表示形式
- * @author HanChun
- * @since 2016-6-4
+ * @author luopeng
+ * @since 2018-6-14
  * @version 1.0
  */
 public class Stacks {
