@@ -7,7 +7,7 @@ import org.xidian.utils.LoadModelUtil;
 import org.xidian.utils.PrintUtil;
 
 /**
- * @author luopeng;
+ * @author PLuo;
  * @Description 含有不可控变迁和不可观变迁的状态分析算法
  * @CreateDate [2019-4-6]
  */

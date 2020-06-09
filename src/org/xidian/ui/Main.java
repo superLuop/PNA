@@ -3,7 +3,7 @@ package org.xidian.ui;
 
 /**
  * PNA 入口
- * @author luopeng
+ * @author PLuo
  */
 public class Main{	
 	
