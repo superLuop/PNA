@@ -254,23 +254,21 @@ public class LoadModelUtil {
 		resourceWeightMap = new LinkedHashMap<Integer, List<Integer>>();
 		List<Integer> list = new LinkedList<>();
 		for(int j:up){
-			//static Map<String, List<Integer>> Trans = new LinkedHashMap<>();
 			if(Trans.containsKey(strs[j])){
-				String[] posTran = strs[j].split(",");
-				String[] strTrans = posTran[1].trim().split(" ");
+				String[] preTran = strs[j].split(",");
+				String[] strTrans = preTran[0].trim().split("\\s+");
 
-				for(int t = 0;t < strTrans.length;t++) {
-					if(strTrans[t] == null || "".equals(strTrans[t])) {
+				for (int t = 2; t < strTrans.length; t++) {
+					if (strTrans[t] == null || "".equals(strTrans[t])) {
 						continue;
 					}
 //    				System.out.println(strTrans[t]);
-					if(strTrans[t].contains(":")) {
+					if (strTrans[t].contains(":")) {
 						String[] tem = strTrans[t].split(":");
 						list.add(Integer.parseInt(tem[0]));
 					} else {
 						list.add(Integer.parseInt(strTrans[t]));
 					}
-
 				}
 
 			}else{
@@ -280,16 +278,16 @@ public class LoadModelUtil {
 		}
 
 //    	System.out.println(Trans);
-		for(int m = 0;m < list.size();m++)
-			badTrans.add(list.get(m));//不可靠资源的后置变迁集
+		//不可靠资源的前置变迁集
+		badTrans.addAll(list);
 
 		for (String keys : Trans.keySet()) {
-			String[] key = keys.trim().split("\\s{1,}"); //以空格分隔
+			String[] key = keys.trim().split("\\s+"); //以空格分隔
 			int resourcePlace = Integer.parseInt(key[0]);
 			if(rp.contains(resourcePlace)){   //判断是否为资源库所
 //				List<Integer> tempList = Trans.get(keys);
 				String[] key1 = keys.trim().split(","); //以逗号分隔
-				String[] preKey = key1[0].split("\\s{1,}");
+				String[] preKey = key1[0].split("\\s+");
 				for(int i = 2;i < preKey.length;i++) {
 					if(preKey[i] == null) {
 						continue;
@@ -298,17 +296,17 @@ public class LoadModelUtil {
 						String[] temp = preKey[i].split(":");
 						if(badTrans.contains(Integer.parseInt(temp[0]))) {
 							resourceWeightMap.put(resourcePlace, new ArrayList<Integer>());
-							String[] posTrans = key1[1].trim().split("\\s{1,}");
-							for(int j = 0;j < posTrans.length;j++) {
-								if(posTrans[j] == null) {
+							String[] posTrans = key1[1].trim().split("\\s+");
+							for (String tran : posTrans) {
+								if (tran == null) {
 									continue;
 								}
-								if (posTrans[j].contains(":")) {
-									String[] posTran = posTrans[j].split(":");
+								if (tran.contains(":")) {
+									String[] posTran = tran.split(":");
 									//Integer.parseInt(key[0]:拿到不可靠资源库所的后置集的后置集，即P··
 
 									resourceWeightMap.get(resourcePlace).add(Integer.parseInt(posTran[1]));
-								}else {
+								} else {
 
 									resourceWeightMap.get(resourcePlace).add(1);
 								}
@@ -322,17 +320,17 @@ public class LoadModelUtil {
 						if(badTrans.contains(Integer.parseInt(preKey[i]))) {
 							resourceWeightMap.put(resourcePlace, new ArrayList<Integer>());
 //		    				System.out.println(resourcePlace);
-							String[] posTrans = key1[1].trim().split("\\s{1,}");
-							for(int j = 0;j < posTrans.length;j++) {
-								if(posTrans[j] == null) {
+							String[] posTrans = key1[1].trim().split("\\s+");
+							for (String tran : posTrans) {
+								if (tran == null) {
 									continue;
 								}
-								if (posTrans[j].contains(":")) {
-									String[] posTran = posTrans[j].split(":");
+								if (tran.contains(":")) {
+									String[] posTran = tran.split(":");
 									//Integer.parseInt(key[0]:拿到不可靠资源库所的后置集的后置集，即P··
 
 									resourceWeightMap.get(resourcePlace).add(Integer.parseInt(posTran[1]));
-								}else {
+								} else {
 
 									resourceWeightMap.get(resourcePlace).add(1);
 								}

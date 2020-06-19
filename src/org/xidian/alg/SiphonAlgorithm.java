@@ -1,5 +1,8 @@
 package org.xidian.alg;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 
 import org.xidian.model.Marking;
@@ -35,6 +38,7 @@ public class SiphonAlgorithm extends PetriModel {
                 new PetriNet(new PNMatrix(preMatrix.getMatrix()),
                         new PNMatrix(posMatrix.getMatrix())),
                 new SetOfPlaces(placesCount));
+//        System.out.println(toString(siphons));
         output += toString(siphons);
 
         output += "\nMinimal Traps\n";
@@ -44,6 +48,10 @@ public class SiphonAlgorithm extends PetriModel {
                         new PNMatrix(preMatrix.getMatrix())),
                 new SetOfPlaces(placesCount));
         output += toString(traps);
+
+//        output += "\nStrict Minimal Siphons\n";
+//        output += toString(siphons);
+
         return output;
     }
 
