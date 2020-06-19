@@ -12,7 +12,7 @@ import org.xidian.model.Transition;
 
 /**
  * 加载 PN model
- * @author luopeng
+ * @author PLuo
  * @version 1.0 2018-6-16
  */
 public class LoadModelUtil {
