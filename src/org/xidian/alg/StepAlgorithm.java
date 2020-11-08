@@ -15,8 +15,8 @@ import org.xidian.utils.PrintUtil;
 /**
  * 步长算法
  * 
- * @author HanChun
- * @version 1.0 2016-10-3
+ * @author luopeng
+ * @version 1.0 2018-10-3
  */
 public class StepAlgorithm extends BaseData{
 	static int maxPath = 1;  //最优步长

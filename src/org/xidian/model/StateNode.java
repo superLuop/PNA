@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * State状态节点
- * @author HanChun
- * @version 1.0 2016-5-18
+ * @author luopeng
+ * @version 1.0 2018-6-18
  */
 public class StateNode implements Cloneable{
 	

@@ -10,7 +10,7 @@ import org.xidian.utils.PrintUtil;
 //import java.util.HashSet;
 
 /**
- * @author LP;
+ * @author PLuo;
  * @Description 含有不可观变迁的状态分析算法
  * @CreateDate [2018-6-28]
  */

@@ -2,8 +2,8 @@ package org.xidian.model;
 
 /**
  * petri net 数学模型
- * @author HanChun
- * @version 1.0 2016-5-16
+ * @author luopeng
+ * @version 1.0 2018-6-16
  */
 public class PetriModel {
 	

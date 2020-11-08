@@ -13,7 +13,7 @@ import org.xidian.model.Transition;
 /**
  * PN基础数据模型，后续分析依赖这部分数据，
  * 每次更新输入文件后，需要重新计算这部分
- * @author HanChun
+ * @author luopeng
  *
  */
 public class BaseData {

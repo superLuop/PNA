@@ -4,8 +4,8 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 
 /**
  * 变迁类
- * @author HanChun
- * @version 1.0 2016-5-16
+ * @author luopeng
+ * @version 1.0 2018-6-16
  */
 @SuppressWarnings("serial")
 public class Transition extends DefaultWeightedEdge{

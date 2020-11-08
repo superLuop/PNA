@@ -11,7 +11,7 @@ import org.xidian.utils.PrintUtil;
 
 /**
  * @Description 含有不可控变迁的状态分析算法
- * @author wss/LP
+ * @author PLuo
  */
 public class UnControllableReachabilityGraphAlgorithm {
 

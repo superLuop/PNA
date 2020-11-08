@@ -4,7 +4,7 @@ import org.xidian.model.PetriModel;
 
 /**
  * 验证工具类
- * @author HanChun
+ * @author luopeng
  *
  */
 public class ValidateUtil {

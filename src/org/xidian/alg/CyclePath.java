@@ -10,8 +10,8 @@ import org.xidian.model.Matrix;
 
 /**
  * 活锁检测
- * @author HanChun
- * @since 2016-6-7
+ * @author luopeng
+ * @since 2018-9-7
  * @version 1.0
  * 实际上，这个是可以写成非递归显示的，递归太容易奔溃了
  */

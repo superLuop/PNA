@@ -6,7 +6,7 @@ import org.xidian.temp.PNMatrix;
 
 /**
  * 不等式分析
- * @author HanChun
+ * @author luopeng
  * 
  * 未重构代码
  */
