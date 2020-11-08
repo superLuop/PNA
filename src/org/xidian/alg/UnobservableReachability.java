@@ -102,10 +102,7 @@ public class UnobservableReachability{
                         }
                     }
                 }
-
             }
-
-            //   UnobservableReachability.BFS(StateShift.length);
 
 
             int totalstate = ReachabilityGraphAlgorithm.statesAmout;
@@ -118,24 +115,15 @@ public class UnobservableReachability{
             for (int b = 0; b < badAnddeadState.size(); b++) {
                 for (int s : notBadState) {
                     if (StateShift[s][badAnddeadState.get(b)] > 0 && !badAnddeadState.contains(s)) {
-                        //while(!stateList.isEmpty()){
-                        //	int index = stateList.getFirst();
                         Set<Integer> ss = new HashSet<>();
                         for (int g : notBadState) {
                             if (StateShift[s][g] > 0) {
                                 ss.add(g);
                             }
                         }
-//						while(iter.hasNext()){
-//							if(StateShift[s][iter.next()] > 0){
-//								ss.add(iter.next());
-//							}
-//						}
                         if (badAnddeadState.containsAll(ss)) {
                             badAnddeadState.add(s);
                         }
-                        //	}
-
                     }
                 }
             }

@@ -12,11 +12,10 @@ import org.xidian.model.Transition;
 
 /**
  * 加载 PN model
- * @author HanChun
- * @version 1.0 2016-5-16
+ * @author PLuo
+ * @version 1.0 2018-6-16
  */
 public class LoadModelUtil {
-
 
 	public static Map<Integer,String> ifcontrollable = null;
 	public static Map<Integer,String> ifobservable = null;

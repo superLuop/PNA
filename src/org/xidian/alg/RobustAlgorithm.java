@@ -12,29 +12,27 @@ import org.xidian.utils.PrintUtil;
  * @author PLuo;
  * @Description 含有不可靠资源的状态分析算法（鲁棒性分析）
  * @CreateDate [2018-7-31]
+ * @update [2020-11-7]
  */
 public class RobustAlgorithm extends BaseData {
     static int[][] StateShift;
-    //static Map<Integer,String> ifreliable = null;
     static LinkedList<Integer> originalBadState = null;
     static LinkedList<Integer> badState = null;
     static Set<Integer> badTrans = null;
     static LinkedList<Integer> up = null;
     static ReachabilityGraphAlgorithm rg = null;
-    //存储含有不可靠资源时的状态,输出结果
-    static StringBuffer sb = null;
     static StringBuffer stateResult = null;
 
     static List<Integer> criticalState = null;
     static List<Integer> deadStates1 = null;
     static Set<Integer> badRobustStates = null;
+    static Deque<Integer> extendBadRobust;
     static Set<Integer> badAnddeadStates = null;
     static Map<Integer, StateNode> allStatesMap = null; //所有状态集合
     static int step = 0;//稳健步长
 
-
     public static String check() {
-        //sb = new StringBuffer();
+
         stateResult = new StringBuffer();
         try {
             rg = new ReachabilityGraphAlgorithm();
@@ -43,9 +41,8 @@ public class RobustAlgorithm extends BaseData {
             e.printStackTrace();
         }
 
-//        StepAlgorithm.analyse();
         allStatesMap = new HashMap<Integer, StateNode>();
-        allStatesMap = rg.resu;
+        allStatesMap = ReachabilityGraphAlgorithm.resu;
 //   	    for (Integer key : allStatesMap.keySet()) {
 //   	    	stateResult.append("CurrentStateNo:"+key+"==>"+"Marking:"+allStatesMap.get(key)+"\n");//输出所有状态集合
 //		}
@@ -60,7 +57,6 @@ public class RobustAlgorithm extends BaseData {
 
         //含有不可控和不可观变迁时的坏死状态
         List<Integer> badAndDeadState = UnControlAndUnObserveAlgorithm.badAnddeadState;
-//	System.out.println(badAndDeadState);
 
         if (badAndDeadState != null && (badAndDeadState.size() > 0)) {
 
@@ -134,65 +130,70 @@ public class RobustAlgorithm extends BaseData {
 
             //不可靠资源
             stateResult.append("\nThe Result of Robust Analysis：");
-            stateResult.append("\n\nThe places of unreliable resource are：");
-            up = LoadModelUtil.up;
-            for (int i = 0; i < up.size(); i++) {
-                stateResult.append("P" + up.get(i) + " ");
+            if (!badTrans.isEmpty()) {
+                stateResult.append("\n\nThe places of unreliable resource are：");
+                up = LoadModelUtil.up;
+                for (Integer item : up) {
+                    stateResult.append("P").append(item).append(" ");
+                }
             }
 
             //所有状态数
-//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
-            stateResult.append("\n\nTotal number of states：" + totalstate);
+            stateResult.append("\n\nTotal number of states：").append(totalstate);
 
             //输出最大许可行为
-            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total ").append(notBadState.size()).append(" states)\n");
             for (Integer maxPermissive : notBadState) {
-                stateResult.append(maxPermissive + " ");
+                stateResult.append(maxPermissive).append(" ");
             }
 
             //输出所有好状态
-            stateResult.append("\n\nThe count of good states：" + (totalstate - badAnddeadStates.size() - criticalState.size()) + "\n");
+            stateResult.append("\n\nThe count of good states：").append(totalstate - badAnddeadStates.size() - criticalState.size()).append("\n");
             stateResult.append("The good states are：");
             for (int n = 1; n <= totalstate; n++) {
                 if (!badAnddeadStates.contains(n) && !criticalState.contains(n)) {
-                    stateResult.append(n + " ");
+                    stateResult.append(n).append(" ");
                 }
             }
 
             //输出所有临界状态
-            stateResult.append("\n\nThe count of critical states：" + criticalState.size());
+            stateResult.append("\n\nThe count of critical states：").append(criticalState.size());
             stateResult.append("\nThe critical states are：\n");
             Set<Integer> keySet = map.keySet();
             for (Integer key : keySet) {
-                stateResult.append(key + "-->The transition that needs to be controlled in this state is : ");
+                stateResult.append(key).append("-->The transition that needs to be controlled in this state is : ");
                 for (int value : map.get(key))
-                    stateResult.append("t" + value + "  ");
+                    stateResult.append("t").append(value).append("  ");
                 stateResult.append("\n");
             }
 
 
             //由不可靠资源导致的不稳健状态
-            stateResult.append("\n\nThe count of bad robust states：" + badRobustStates.size());
-            stateResult.append("\nThe bad robust states are：");
-            stateResult.append(PrintUtil.printSet(badRobustStates));
-            printBadRobust(badRobustStates);
+            if (!badTrans.isEmpty()) {
+                Set<Integer> tmpNotRobustSet = new HashSet<>(badRobustStates);
+                tmpNotRobustSet.removeAll(badAndDeadState);
+                stateResult.append("\n\nThe count of bad robust states：").append(tmpNotRobustSet.size());
+                stateResult.append("\nThe bad robust states are：");
+                stateResult.append(PrintUtil.printSet(tmpNotRobustSet));
+                printBadRobust(tmpNotRobustSet);
+            }
 
             //输出所有坏状态
             badState = new LinkedList<Integer>();
             badState.addAll(badAnddeadStates);
             badState.removeAll(deadStates1);
             badState.removeAll(badRobustStates);
-            stateResult.append("\n\nThe count of bad states：" + badState.size());
+            stateResult.append("\n\nThe count of bad states：").append(badState.size());
             stateResult.append("\nThe bad states are：");
-            for (int t = 0; t < badState.size(); t++) {
-                stateResult.append(badState.get(t) + " ");
+            for (Integer value : badState) {
+                stateResult.append(value).append(" ");
             }
 
             //输出所有死锁状态
-            stateResult.append("\n\nThe count of deadlock states：" + deadStates1.size());
+            stateResult.append("\n\nThe count of deadlock states：").append(deadStates1.size());
             stateResult.append("\nThe deadlock states are：");
             for (Integer integer : deadStates1) {
-                stateResult.append(integer + " ");
+                stateResult.append(integer).append(" ");
             }
 
             //输出稳健步长
@@ -213,13 +214,11 @@ public class RobustAlgorithm extends BaseData {
             badAnddeadStates = new HashSet<Integer>();
 
             RobustAlgorithm.robustPermission(badTranList);
-//	 	System.out.println(badAnddeadStates);
 
             //状态的改变（一个状态在某一变迁的发射下到达另一状态的过程）
             List<List<Integer>> adj = ReachabilityGraphAlgorithm.adjlist;
-
-            int totalsize = adj.size();
-            StateShift = new int[totalsize + 1][totalsize + 1];
+            int totalSize = adj.size();
+            StateShift = new int[totalSize + 1][totalSize + 1];
 
             for (List<Integer> list : adj) {
                 if (!list.isEmpty()) {
@@ -261,37 +260,36 @@ public class RobustAlgorithm extends BaseData {
             }
 
             //所有状态数
-//            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
-            stateResult.append("\n\nTotal number of states：" + totalstate);
+            stateResult.append("\n\nTotal number of states：").append(totalstate);
 
             //输出最大许可行为
-            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total "+notBadState.size()+" states)\n");
+            stateResult.append("\n\nThe maximum permissive behaviors of the net are: (total ").append(notBadState.size()).append(" states)\n");
             for (Integer maxPermissive : notBadState) {
-                stateResult.append(maxPermissive + " ");
+                stateResult.append(maxPermissive).append(" ");
             }
 
             //输出所有好状态
-            stateResult.append("\n\nThe count of good states：" + (totalstate - badAnddeadStates.size() - criticalState.size()) + "\n");
+            stateResult.append("\n\nThe count of good states：").append(totalstate - badAnddeadStates.size() - criticalState.size()).append("\n");
             stateResult.append("The good states are：");
             for (int n = 1; n <= totalstate; n++) {
                 if (!badAnddeadStates.contains(n) && !criticalState.contains(n)) {
-                    stateResult.append(n + " ");
+                    stateResult.append(n).append(" ");
                 }
             }
 
             //输出所有临界状态
-            stateResult.append("\n\nThe count of critical states：" + criticalState.size());
+            stateResult.append("\n\nThe count of critical states：").append(criticalState.size());
             stateResult.append("\nThe critical states are：\n");
             Set<Integer> keySet = map.keySet();
             for (Integer key : keySet) {
-                stateResult.append(key + "-->The transition that needs to be controlled in this state is : ");
+                stateResult.append(key).append("-->The transition that needs to be controlled in this state is : ");
                 for (int value : map.get(key))
-                    stateResult.append("t" + value + "  ");
+                    stateResult.append("t").append(value).append("  ");
                 stateResult.append("\n");
             }
 
             //由不可靠资源导致的不稳健状态
-            stateResult.append("\n\nThe count of bad robust states：" + badRobustStates.size());
+            stateResult.append("\n\nThe count of bad robust states：").append(badRobustStates.size());
             stateResult.append("\nThe bad robust states are：");
             stateResult.append(PrintUtil.printSet(badRobustStates));
             printBadRobust(badRobustStates);
@@ -310,7 +308,7 @@ public class RobustAlgorithm extends BaseData {
         for (Integer br : badRobustStates) {
             for (Integer key : allStatesMap.keySet()) {
                 if (key.equals(br)) {
-                    stateResult.append("\nStateNo:" + key + "==>" + "Marking:" + allStatesMap.get(key) + "\n");
+                    stateResult.append("\nStateNo:").append(key).append("==>").append("Marking:").append(allStatesMap.get(key)).append("\n");
                 }
             }
         }
@@ -319,58 +317,68 @@ public class RobustAlgorithm extends BaseData {
     /**
      * 稳健许可性计算
      */
-    public static String robustPermission(List<Integer> badTrans) {
+    public static void robustPermission(List<Integer> badTrans) {
 
-        Set<Integer> noDeadlock = new HashSet<Integer>();
-        badRobustStates = new HashSet<>();
+        badRobustStates = new HashSet<Integer>();
+        List<Integer> goodStateList = new ArrayList<Integer>();
+        int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+        for (int i = 1; i <= totalstate; i++) {
+            goodStateList.add(i);
+        }
 
+        if (!originalBadState.isEmpty() && !deadStates.isEmpty()) {
+            List<Integer> badAnddeadState = UnControlAndUnObserveAlgorithm.badAnddeadState;
+            goodStateList.removeAll(badAnddeadState);
+        }
 
-        if ((!originalBadState.isEmpty() && originalBadState != null) && !deadStates.isEmpty()) {
-
-//                System.out.println(originalBadState);
-//                System.out.println(deadStates);
-
-            //1.删除死锁状态
-            for (StateNode el : deadStates) {
-                noDeadlock.add(el.getStateNo());
-                Matrix.clearMatrixCol(el.getStateNo() - 1, graphModel.getCostMatrix().getMatrix());
-                Matrix.getMatrixCol(el.getStateNo() - 1, graphModel.getCostMatrix().getMatrix());
+        StateShift = new int[totalstate + 1][totalstate + 1];
+        Map<Integer, StateNode> preStatesMap = ReachabilityGraphAlgorithm.preStatesMap;
+        Map<Integer, List<Integer>> enableTran = new HashMap<Integer, List<Integer>>();//每个状态下使能的变迁集
+        for (Map.Entry<Integer, StateNode> entry : preStatesMap.entrySet()) {
+            StateNode curState = entry.getValue();
+            boolean[] canFire = ReachabilityGraphAlgorithm.getEnabledTrans(curState);
+            Set<Integer> nextTrans = new HashSet<Integer>(); //当前状态下，能够发射的变迁
+            enableTran.put(curState.getStateNo(), new ArrayList<>());
+            for (int i = 0; i < canFire.length; i++) {
+                if (canFire[i]) {
+                    nextTrans.add(i + 1);
+                    enableTran.get(curState.getStateNo()).add(i + 1);
+                }
             }
-            //2.删除坏状态
-            for (int el : originalBadState) {
-                noDeadlock.add(el);
-                Matrix.clearMatrixCol(el - 1, graphModel.getCostMatrix().getMatrix());
-                Matrix.getMatrixCol(el - 1, graphModel.getCostMatrix().getMatrix());
+            if (badTrans.containsAll(nextTrans)) {
+                badRobustStates.add(curState.getStateNo());
             }
         }
 
-//        Set<Integer> badTranSet = new HashSet<Integer>();
-//        for (int t : badTrans){
-//            badTranSet.add(t);
-//        }
-
-//        if (badTrans.isEmpty())
-//            step = -1;
-//        else
-//            step = robustPath(graphModel.getCostMatrix().getMatrix(), badTranSet);
-
-        //3.删除故障相关变迁
-        if (badTrans != null && badTrans.size() > 0){
-            for (int el : badTrans) {
-                Matrix.reviseValue(graphModel.getCostMatrix().getMatrix(), el, 0);
+        List<List<Integer>> adj = ReachabilityGraphAlgorithm.adjlist;
+        for (List<Integer> list : adj) {
+            if (!list.isEmpty()) {
+                for (int k = 0; k < list.size(); k = k + 3) {
+                    addEdge(list.get(k), list.get(k + 2), list.get(k + 1));
+                }
+            }
+        }
+        extendBadRobust = new ArrayDeque<Integer>(badRobustStates);
+        while (!extendBadRobust.isEmpty()) {
+            Integer m = extendBadRobust.pollFirst();
+            for (int s : goodStateList) {
+                if (StateShift[s][m] > 0 && !badRobustStates.contains(s)) {
+                    Set<Integer> allTran = new HashSet<Integer>();
+                    for (int g : goodStateList) {
+                        if (StateShift[s][g] > 0 && (m != g)) {
+                            allTran.add(StateShift[s][g]);
+                        }
+                    }
+                    if (badTrans.containsAll(allTran)) {
+                        badRobustStates.add(s);
+                        extendBadRobust.offerLast(s);
+                    }
+                }
             }
         }
 
-        //4.不稳健的状态
-        Set<Integer> set = Matrix.getIndexOfAllZero(graphModel.getCostMatrix().getMatrix());
-        for (int el : set) {
-            if (!badAnddeadStates.contains(el)) {
-                badRobustStates.add(el);
-            }
-        }
         badAnddeadStates.addAll(badRobustStates);
 
-        return stateResult.toString();
     }
 
     /**

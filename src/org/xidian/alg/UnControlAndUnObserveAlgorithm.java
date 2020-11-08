@@ -27,6 +27,7 @@ public class UnControlAndUnObserveAlgorithm {
     //存储临界状态,输出结果
     static StringBuffer sb = null;
     static StringBuffer stateResult = null;
+    static Deque<Integer> extendBadAnddead;
 
     public static String check() {
         sb = new StringBuffer();
@@ -80,9 +81,16 @@ public class UnControlAndUnObserveAlgorithm {
             }
             //含不可观变迁时的临界状态
             criticalState = UnobservableReachability.criticalState;
+
+            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
+            List<Integer> notBadState = new LinkedList<Integer>();
+            for (int i = 1; i <= totalstate; i++) {
+                notBadState.add(i);
+            }
+
             while (!que.isEmpty()) {
                 int head = que.poll();
-                for (int i : criticalState) {
+                for (int i : notBadState) {
                     for (int j = 0; j < unControllableTra.size(); j++) {
                         if (StateShift[i][head] == unControllableTra.get(j) && !badAnddeadState.contains(i) && badAnddeadState.contains(head)) {
                             que.add(i);
@@ -92,16 +100,13 @@ public class UnControlAndUnObserveAlgorithm {
                 }
             }
 
-            int totalstate = ReachabilityGraphAlgorithm.statesAmout;
-            List<Integer> notBadState = new LinkedList<Integer>();
-            for (int i = 1; i <= totalstate; i++) {
-                notBadState.add(i);
-            }
             notBadState.removeAll(badAnddeadState);
 
-            for (int t = 0; t < badAnddeadState.size(); t++) {
+            extendBadAnddead = new ArrayDeque<Integer>(badAnddeadState);
+            while (!extendBadAnddead.isEmpty()) {
+                Integer t = extendBadAnddead.pollFirst();
                 for (int s : notBadState) {
-                    if (StateShift[s][badAnddeadState.get(t)] > 0 && !badAnddeadState.contains(s)) {
+                    if (StateShift[s][t] > 0 && !badAnddeadState.contains(s)) {
                         Set<Integer> ss = new HashSet<>();
                         for (int g : notBadState) {
                             if (StateShift[s][g] > 0) {
@@ -110,6 +115,7 @@ public class UnControlAndUnObserveAlgorithm {
                         }
                         if (badAnddeadState.containsAll(ss)) {
                             badAnddeadState.add(s);
+                            extendBadAnddead.offerLast(s);
                         }
                     }
                 }
@@ -117,7 +123,7 @@ public class UnControlAndUnObserveAlgorithm {
 
 
 //            criticalState = UnobservableReachability.criticalState;
-            for (int n = 0;n < badAnddeadState.size(); n++) {
+            for (int n = 0; n < badAnddeadState.size(); n++) {
                 for (int m : notBadState) {
                     if (StateShift[m][badAnddeadState.get(n)] > 0 && badAnddeadState.contains(badAnddeadState.get(n)) && !badAnddeadState.contains(m) && !criticalState.contains(m)) {
                         criticalState.add(m);
